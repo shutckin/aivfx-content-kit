@@ -1,0 +1,25 @@
+{
+  "name": "neon-night",
+  "title": "Неоновая ночь",
+  "description": "Ночной город, неоновые вывески, мокрый асфальт. Мягкие ореолы вокруг источников вместо цифрового перешарпа.",
+  "use_when": [
+    "ночной город и улица",
+    "бары, клубы, музыка",
+    "киберпанк и поп-культурные отсылки",
+    "обложки про ночную жизнь"
+  ],
+  "avoid_when": [
+    "дневные сцены",
+    "предметка в точном цвете",
+    "тёплый домашний интерьер"
+  ],
+  "core": "Shot on Arricam LT with Cooke Panchro/i Classic primes, 35mm Kodak Vision3 500T pushed one stop, T2.0, shallow depth of field, strong halation around neon sources, visible organic grain, soft deep blacks, gentle contrast, no sharpening, no HDR.",
+  "grade": "Neon night grade: magenta and cyan signage spill, sodium-orange streetlight pools, wet asphalt reflections, natural skin under mixed light, soft bloom, no clipped highlights.",
+  "video_motion": "Handheld with slow drift, following the subject through the street.",
+  "video_dialogue": "Naturalistic performance, real dialogue sync, no music.",
+  "banned_words": [
+    "glowing edges",
+    "neon outline",
+    "synthwave poster"
+  ]
+}

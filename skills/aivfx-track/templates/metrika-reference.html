@@ -1,0 +1,55 @@
+<!doctype html>
+<!--
+  Эталонная страница для проверки Метрики.
+  Один стандартный код счётчика, без опций, без фреймворка, без CSP.
+  Подставь свой номер счётчика вместо 00000000 в трёх местах и открой
+  страницу тем же способом, каким проверяешь сайт (тот же выход в сеть,
+  тот же браузер). Можно открыть с диска или положить на свой сервер.
+
+  Работает, если:
+    - в консоли Object.keys(window).filter(k => k.startsWith('yaCounter'))
+      показывает yaCounter00000000;
+    - во вкладке Network ушёл запрос на mc.yandex.ru/watch/00000000
+      (или mc.yandex.com).
+  Эталон молчит: сломан способ проверки (блокировщик, VPN, признак робота).
+  Эталон работает, а сайт нет: сломан сайт, сравни его код init с этим.
+
+  Код счётчика взят из стандартной формы установки Метрики. Если в
+  интерфейсе Метрики форма поменялась, возьми свежий код оттуда, но без
+  дополнительных опций.
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Эталон Метрики</title>
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(00000000, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+</head>
+<body>
+<p>Эталон Метрики. Открой консоль и вкладку Network.</p>
+<p id="state">Проверяю...</p>
+<script>
+  // Через 5 секунд показать, создан ли объект счётчика.
+  setTimeout(function () {
+    var found = Object.keys(window).filter(function (k) { return k.indexOf('yaCounter') === 0; });
+    document.getElementById('state').textContent = found.length
+      ? 'Объект счётчика есть: ' + found.join(', ') + '. Теперь проверь запрос watch во вкладке Network.'
+      : 'Объекта yaCounter нет. Счётчик не запустился: блокировка, признак робота или неверный номер.';
+  }, 5000);
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/00000000" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+</body>
+</html>

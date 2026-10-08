@@ -1,0 +1,104 @@
+{
+  "_about": "Бренд-файл моушен-графики для ролика «Минута до трамвая». Бренд вымышленный, условно. Цвета сняты с вывески и стакана клиента, гайдлайна у кофейни нет. Формат по skills/aivfx-motion/templates/brand.example.json.",
+
+  "name": "Тихий помол",
+  "url": "tihiy-pomol.example",
+
+  "colors": {
+    "_about": "Четыре активных цвета и текст на акценте. Только hex, прозрачность в layout.plate_opacity.",
+    "bg": "#1f1a17",
+    "_bg": "эспрессо: фон хука и финальной карточки",
+    "surface": "#2b2420",
+    "_surface": "подложка плашки поверх футажа",
+    "ink": "#f3ece2",
+    "_ink": "крем, как стакан: заголовки и цифры",
+    "mute": "#b8ab9b",
+    "_mute": "вторая строка: адрес, подпись к цифре",
+    "accent": "#c8743a",
+    "_accent": "терракота, как логотип: одна линия или одно слово на сцену",
+    "on_accent": "#1f1a17",
+    "_on_accent": "текст на терракотовой подложке, если понадобится"
+  },
+
+  "fonts": {
+    "_about": "Санс в обеих ролях, цифры через tnum. Моноширинных нет.",
+    "display": {
+      "family": "Manrope",
+      "weights": [600, 800],
+      "fallback": "sans-serif",
+      "file": "fonts/Manrope-Variable.ttf",
+      "_role": "хук, цифра, название в финале"
+    },
+    "body": {
+      "family": "Inter",
+      "weights": [400, 500],
+      "fallback": "sans-serif",
+      "file": "fonts/Inter-Variable.ttf",
+      "features": "tnum",
+      "_role": "подписи, адрес, часы работы"
+    }
+  },
+
+  "type_scale": {
+    "_about": "Пиксели для кадра 1080x1920.",
+    "hook": 96,
+    "title": 72,
+    "number": 180,
+    "name": 56,
+    "caption": 48,
+    "_caption": "было 42, поднято после круга правок 1, пункт 7 (09-revisions.md)",
+    "label": 32,
+    "line_height": 1.15,
+    "max_chars_per_line": 24
+  },
+
+  "motion": {
+    "_about": "Ролик спокойный: вход чуть медленнее, чем в образце, сдвиг короче.",
+    "enter_sec": 0.6,
+    "exit_sec": 0.3,
+    "ease_enter": "power2.out",
+    "ease_exit": "power2.in",
+    "stagger_sec": 0.1,
+    "word_stagger_sec": 0.35,
+    "travel_px": 32,
+    "direction": "up",
+    "blur_px": 10,
+    "max_moves_per_scene": 2
+  },
+
+  "timing": {
+    "sec_per_word": 0.35,
+    "min_hold_sec": 1.5,
+    "fps": 30,
+    "scene_sec": {
+      "hook": 2.0,
+      "name": 4.0,
+      "chapter": 3.0,
+      "number": 3.0,
+      "endcard": 3.0
+    }
+  },
+
+  "layout": {
+    "corner_radius": 12,
+    "plate_padding": 28,
+    "plate_opacity": 0.82,
+    "safe": {
+      "16:9": {"width": 1920, "height": 1080, "top": 54, "bottom": 96, "left": 96, "right": 96},
+      "9:16": {"width": 1080, "height": 1920, "top": 260, "bottom": 420, "left": 64, "right": 140,
+               "_note": "сверху ник и кнопки площадки, снизу подпись и прогресс, справа колонка лайков"}
+    },
+    "lower_third_anchor": "bl"
+  },
+
+  "texture": {
+    "grain": 0.05
+  },
+
+  "rules": [
+    "Акцент один на сцену.",
+    "Логотип только в финальной карточке.",
+    "Часы работы и адрес только из брифа, после подтверждения клиента.",
+    "Цен в ролике нет."
+  ]
+}

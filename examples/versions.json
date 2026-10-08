@@ -1,0 +1,50 @@
+{
+  "_comment": "ПРИМЕР. Версии сверены в сентябре 2026, перед работой перепроверь каждую по официальной странице из source и поставь свою дату в checked_at. Скопируй файл в versions.json рядом с текстами.",
+  "checked_at": "2026-09-18",
+  "ttl_days": 45,
+  "services": [
+    {
+      "name": "Suno",
+      "current": "6.0",
+      "source": "официальные release notes Suno",
+      "_why": "в текстах пишут голое «v6» без имени, поэтому нужна регулярка без имени и контекст «Suno» рядом",
+      "version_regex": "\\bv(\\d+(?:\\.\\d+)?)(?:-mini|-wild)?\\b",
+      "context_regex": "\\bSuno\\b",
+      "context_window": 200
+    },
+    {
+      "name": "Midjourney",
+      "current": "8.2",
+      "source": "официальная документация Midjourney",
+      "_why": "у Midjourney тоже «V8», а у Suno «v6»: версия засчитывается сервису, чьё имя стоит ближе",
+      "version_regex": "\\bV(\\d+(?:\\.\\d+)?)\\b",
+      "context_regex": "\\bMidjourney\\b",
+      "context_window": 200
+    },
+    {
+      "name": "Google Veo",
+      "current": "3.1",
+      "source": "страница модели Veo у Google DeepMind",
+      "version_regex": "\\bVeo\\s+(\\d+(?:\\.\\d+)?)",
+      "context_regex": "\\bVeo\\b",
+      "context_window": 40
+    },
+    {
+      "name": "Runway",
+      "current": "4.5",
+      "source": "страница исследований Runway",
+      "_why": "«Gen-4 Turbo» это отдельная живая модель, не старая версия, поэтому исключена",
+      "version_regex": "\\bGen-(\\d+(?:\\.\\d+)?)(?!\\s+Turbo)",
+      "context_regex": "\\b(Runway|Gen-\\d)",
+      "context_window": 40
+    },
+    {
+      "name": "Kling",
+      "current": "3.0",
+      "source": "сайт Kling",
+      "version_regex": "\\bKling\\s+(\\d+(?:\\.\\d+)?)",
+      "context_regex": "\\bKling\\b",
+      "context_window": 40
+    }
+  ]
+}

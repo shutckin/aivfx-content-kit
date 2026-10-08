@@ -1,0 +1,25 @@
+{
+  "name": "nordic-cold",
+  "title": "Северный холодный",
+  "description": "Чистый холодный свет пасмурного окна, светлое дерево, приглушённая палитра. Спокойно и аккуратно, без больничной стерильности.",
+  "use_when": [
+    "техника и гаджеты",
+    "медицина и здоровье",
+    "SaaS и офисы",
+    "минималистичные интерьеры"
+  ],
+  "avoid_when": [
+    "еда и уют",
+    "тёплые бренды",
+    "ночные сцены"
+  ],
+  "core": "Shot on ARRI Alexa Mini LF with Zeiss Supreme Prime lenses, Kodak Vision3 250D film emulation, T2.8, shallow depth of field, soft halation on highlights, fine organic grain, lifted soft blacks, low contrast, no sharpening, no HDR.",
+  "grade": "Nordic cold grade: overcast north window light, pale birch and white oak, cool blue-grey whites, neutral natural skin, muted desaturated palette, clean matte shadows.",
+  "video_motion": "Slow steady dolly drift, calm and unhurried.",
+  "video_dialogue": "Natural understated performance, real dialogue sync, no music.",
+  "banned_words": [
+    "vibrant colors",
+    "golden hour",
+    "warm glow"
+  ]
+}

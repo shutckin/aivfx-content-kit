@@ -1,0 +1,25 @@
+{
+  "name": "documentary-16mm",
+  "title": "Документальный 16 мм",
+  "description": "Дневная плёнка 16 мм, ручная камера, натуральный свет и живые локации. Картинка репортажа, а не рекламы.",
+  "use_when": [
+    "репортаж и бэкстейдж",
+    "путешествия и улица",
+    "UGC и «как будто снято на месте»",
+    "истории реальных людей"
+  ],
+  "avoid_when": [
+    "глянцевая реклама",
+    "предметка",
+    "ночные сцены"
+  ],
+  "core": "Shot on Arriflex 416 with Zeiss Ultra 16 primes, 16mm Kodak Vision3 250D, T4, natural depth of field, mild halation on highlights, visible organic 16mm grain, lifted soft blacks, low contrast, no sharpening, no HDR.",
+  "grade": "Daylight documentary grade: natural available light, true daylight skin tones, slightly faded greens and earth tones, soft overcast fill, unpolished real locations.",
+  "video_motion": "Handheld shoulder-mounted camera, observational, small reframes, never locked off.",
+  "video_dialogue": "Unscripted natural behaviour, real dialogue sync, ambient location sound, no music.",
+  "banned_words": [
+    "studio lighting",
+    "glossy",
+    "commercial look"
+  ]
+}

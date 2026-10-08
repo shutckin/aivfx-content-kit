@@ -1,0 +1,25 @@
+{
+  "name": "neutral-product",
+  "title": "Нейтральная предметка",
+  "description": "То же плёночное ядро без грейда и с нейтральным балансом белого: продукт и фирменные цвета остаются своими.",
+  "use_when": [
+    "предметная съёмка",
+    "карточки маркетплейсов",
+    "упаковка и косметика",
+    "утверждённые цвета бренда"
+  ],
+  "avoid_when": [
+    "атмосферные кадры с людьми, где нужен характер",
+    "ночные и неоновые сцены"
+  ],
+  "core": "Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallow depth of field, halation on highlights, fine organic grain, lifted milky blacks, low contrast, no sharpening, no HDR. Neutral white balance, true-to-life product colours, no colour cast.",
+  "grade": "",
+  "video_motion": "Slow steady slider move, smooth and controlled.",
+  "video_dialogue": "Naturalistic performance, real dialogue sync, no music.",
+  "banned_words": [
+    "color graded",
+    "teal and orange",
+    "cinematic grade",
+    "warm tint"
+  ]
+}

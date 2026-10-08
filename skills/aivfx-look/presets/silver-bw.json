@@ -1,0 +1,26 @@
+{
+  "name": "silver-bw",
+  "title": "Серебряный ч/б",
+  "description": "Чёрно-белая плёнка Double-X с серебряным зерном: полный тональный диапазон без цифровой контрастности.",
+  "use_when": [
+    "портреты с характером",
+    "архивная и историческая подача",
+    "имиджевые кадры",
+    "когда цвет отвлекает"
+  ],
+  "avoid_when": [
+    "продукт важен в цвете",
+    "фирменные цвета бренда",
+    "еда"
+  ],
+  "core": "Shot on Arricam LT with Zeiss Super Speed primes, 35mm Kodak Eastman Double-X 5222 black-and-white film, T2.0, shallow depth of field, soft halation on highlights, rich silver-halide grain, lifted charcoal blacks, gentle contrast, no sharpening, no HDR.",
+  "grade": "Silver monochrome: full tonal range from charcoal to soft white, no colour tint, window light shaping the face, gentle shadow detail.",
+  "video_motion": "Handheld with micro-drift, never locked off.",
+  "video_dialogue": "Naturalistic performance, real dialogue sync, no music.",
+  "banned_words": [
+    "vibrant colors",
+    "colorful",
+    "saturated",
+    "high contrast black and white"
+  ]
+}

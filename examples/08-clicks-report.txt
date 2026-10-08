@@ -1,0 +1,26 @@
+Кликов людей за всё время в журнале: 8
+Отсеяно ботов и превью: 3, склеено повторов: 1
+
+По партнёрам:
+      8  example
+
+По страницам и местам:
+      6  plastikovye-kartinki.text
+      2  generatory-kartinok.text
+
+По месту на странице:
+      8  text
+
+По странам: RU 6, KZ 1, BY 1
+
+Последние 8:
+  09.10 12:14  RU  example          plastikovye-kartinki.text
+  10.10 10:41  RU  example          plastikovye-kartinki.text
+  10.10 19:05  KZ  example          generatory-kartinok.text
+  11.10 13:27  RU  example          plastikovye-kartinki.text
+  12.10 16:50  BY  example          plastikovye-kartinki.text
+  13.10 11:33  RU  example          plastikovye-kartinki.text
+  14.10 17:09  RU  example          generatory-kartinok.text
+  15.10 20:44  RU  example          plastikovye-kartinki.text
+
+Разметка ссылок в порядке.
