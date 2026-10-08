@@ -454,6 +454,8 @@ MIT, см. [LICENSE](LICENSE).
 
 Автор: Артем Шуткин, студия AIVFX, [aivfx.ru](https://aivfx.ru).
 
+Деловые предложения и сотрудничество: [connect@shootkin.com](mailto:connect@shootkin.com).
+
 ## In English
 
 **AIVFX Content Kit** is a set of 12 skills for Claude Code and Codex from AIVFX, a small AI video and automation studio. With them the agent works the way the studio works: client AI videos, motion graphics, image and video generation in one consistent look, social media, a blog and websites.
@@ -464,4 +466,4 @@ The flagship skill `aivfx-concept` is the studio's concept studio pipeline for c
 
 Four areas: Video (`aivfx-concept`, `aivfx-shotlist`, `aivfx-archive`, `aivfx-motion`), Generation (`aivfx-look` with six presets and the Dark Roast flagship, `aivfx-cover`, `aivfx-thumb`), Social and blog (`aivfx-social`, `aivfx-blog`, `aivfx-track`), Websites (`aivfx-site`, `aivfx-secure`). The agent never publishes, sends or deploys on its own: only on the owner's explicit word.
 
-Install: `bash install.sh` (both `~/.claude/skills` and `~/.codex/skills`), or `--claude` / `--codex`, or copy `skills/*` manually. Helper scripts are plain Python 3 with no dependencies and exit with code 1 on violations. Worked examples live in `examples/`. Skill texts are in Russian. The studio's internal templates, prompt libraries and motion factory code are not included. License: MIT. Author: Artem Shutkin, AIVFX studio, https://aivfx.ru.
+Install: `bash install.sh` (both `~/.claude/skills` and `~/.codex/skills`), or `--claude` / `--codex`, or copy `skills/*` manually. Helper scripts are plain Python 3 with no dependencies and exit with code 1 on violations. Worked examples live in `examples/`. Skill texts are in Russian. The studio's internal templates, prompt libraries and motion factory code are not included. License: MIT. Author: Artem Shutkin, AIVFX studio, https://aivfx.ru. Business inquiries: connect@shootkin.com.
