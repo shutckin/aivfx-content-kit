@@ -1,9 +1,11 @@
 ---
 name: archive-footage
-description: Поиск архивных материалов (футаж, фото, документы, газеты, хроника) под уже написанный сценарий - разбор текста на конкретные факты, карта источников по типу материала, что можно брать бесплатно и на каких условиях, как читать лицензию, как фиксировать источник каждого файла в журнале, проверка, кто в кадре, что делать, если материала нет, и чего делать нельзя. Включай на фразы «найди архив», «чем накрыть этот блок», «нужны кадры про», «найди хронику», «фото молодого», «видеоряд под биографию», «можно ли взять это видео», «какая лицензия», «журнал источников», а также "archival footage", "find stock for script", "public domain footage", "footage licensing", "source log". Не включай для своей съёмки (это shot-list) и не используй для обхода лицензий и скачивания защищённого контента.
+description: "Finds archival material (footage, photos, documents, newspapers, newsreels) for an already written script. Breaks the text into concrete facts, maps sources by material type, explains what can be used for free and on what terms, how to read a license, how to log the source of every file, how to verify who is in the frame, what to do when nothing exists, and what never to do. Use when a script needs archive coverage. Triggers: 'archival footage', 'find stock for script', 'public domain footage', 'footage licensing', 'source log', 'can I use this video'. Not for your own shoot (use shot-list), and never for bypassing licenses or downloading protected content. Triggers (RU): «найди архив», «чем накрыть этот блок», «нужны кадры про», «найди хронику», «фото молодого», «видеоряд под биографию», «можно ли взять это видео», «какая лицензия», «журнал источников»."
 ---
 
 # Архив под готовый сценарий
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

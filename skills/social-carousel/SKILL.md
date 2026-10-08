@@ -1,9 +1,11 @@
 ---
 name: social-carousel
-description: Соцсети студии или маленького бренда на реальной связке - карусели и посты для Instagram и Threads (по желанию Pinterest). Тема берётся из реальных вопросов людей, кадры генерируются реалистичной фотогенерацией (Seedream 5 Pro или Nano Banana через Higgsfield, лук из film-look), текст держит слой вёрстки, подпись Instagram и отдельный короткий пост Threads, утверждение партии владельцем, публикация по расписанию с сервера через официальные API, а не с ноутбука, ритм на неделю, еженедельная ревизия однообразия и замер. Скрипт проверяет файл партии - лимиты подписей и хэштегов, альт-тексты, повтор раскладок, длинные тире. Включай, когда просят «сделай карусель», «пост в инстаграм», «пост в тредс», «контент-план на неделю», «партия постов», «расписание публикаций», «автопостинг», «почему пост не вышел в Threads», «ревизия ленты», «пины для Pinterest», а также "Instagram carousel", "Threads post", "weekly content plan", "social media batch", "scheduled posting", "Pinterest pins".
+description: "Runs social media for a studio or small brand on a real stack: carousels and posts for Instagram and Threads (Pinterest optional). Topics come from real questions, frames from realistic photo generation (Seedream 5 Pro or Nano Banana via Higgsfield, look from film-look), text lives in a layout layer, with an Instagram caption and a separate short Threads post, owner approval of the batch, scheduled publishing from a server via official APIs, not from a laptop, a weekly rhythm, sameness review and measurement. A script checks the batch file: caption and hashtag limits, alt texts, repeated layouts, long dashes. Triggers: 'Instagram carousel', 'Threads post', 'weekly content plan', 'social media batch', 'scheduled posting', 'Pinterest pins'. Triggers (RU): «сделай карусель», «пост в инстаграм», «пост в тредс», «контент-план на неделю», «партия постов», «расписание публикаций», «автопостинг», «почему пост не вышел в Threads», «ревизия ленты», «пины для Pinterest»."
 ---
 
 # Соцсети: карусели и посты на реальной связке
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

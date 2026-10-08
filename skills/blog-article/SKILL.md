@@ -1,9 +1,11 @@
 ---
 name: blog-article
-description: Статья для блога студии от темы до выката и замера одним конвейером - тема из Search Console, Вебмастера и живых вопросов людей (Вордстат и подсказки дополнительно), синопсис с тремя углами и согласование, факты с источником и датой, обложка через article-cover, текст волнами силами агентов по раздельным файлам, машинные проверки (структура, FAQ с «?», штампы и длинные тире, свежесть версий и сроки акций), правки владельца списком, выкат пачкой только по слову, индексация через Search Console и IndexNow, замер через неделю в site-analytics. Включай на фразы «напиши статью», «статья в блог», «о чём писать», «подбери темы», «обнови старую статью», «проверь статью», «убери нейросеть из текста», «проверь актуальность», «волна статей», «английская версия статьи», «отправь на индексацию», а также "write a blog post", "SEO article", "content ideas", "update old article", "stale facts", "humanize text", "request indexing". Не включай на правку одной опечатки или одной ссылки.
+description: "Runs a studio blog article from topic to release and measurement in one pipeline. Topic from Search Console, Yandex Webmaster and real questions (plus Wordstat), synopsis with three angles and approval, facts with source and date, cover via article-cover, text in waves by agents in separate files, machine checks (structure, FAQ, cliches, long dashes, stale versions and promo dates), owner edits as a list, batch release only on explicit word, indexing via Search Console and IndexNow, measurement a week later in site-analytics. Triggers: 'write a blog post', 'SEO article', 'content ideas', 'update old article', 'stale facts', 'humanize text', 'request indexing'. Not for fixing one typo or link. Triggers (RU): «напиши статью», «статья в блог», «о чём писать», «подбери темы», «обнови старую статью», «проверь статью», «убери нейросеть из текста», «проверь актуальность», «волна статей», «английская версия статьи», «отправь на индексацию»."
 ---
 
 # blog-article: статья от темы до замера
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

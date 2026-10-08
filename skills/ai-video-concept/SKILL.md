@@ -1,9 +1,11 @@
 ---
 name: ai-video-concept
-description: Конвейер клиентского AI-ролика студии (concept studio) от брифа до сдачи - приём брифа и реальных фото продукта, синопсис в чат, лист персонажа и лист локации по 3 варианта, презентация 16:9 на согласование, статика волнами, видео одним промптом на весь ролик, правки клиента списком, сборка и чек-лист сдачи. Главное правило: до первого кадра ролика клиент утверждает препродакшн-пакет, а утверждённые листы персонажа и локации идут референсами в каждую генерацию. Включай, когда пришёл бриф на рекламный или продуктовый AI-ролик, на фразы «вот бриф», «новый клиент», «концепт студия», «препродакшн-пакет», «лист персонажа», «лист локации», «презентация клиенту», «правки от клиента», «готовим сдачу», а также "client AI video", "preproduction package", "character sheet", "location sheet". Не включай для статей и обложек (это blog-article и article-cover).
+description: "Runs a client AI video for a concept studio from brief to delivery. Takes the brief and real product photos, writes a synopsis, builds character and location sheets with 3 options each, a 16:9 approval deck, stills in waves, one prompt for the whole video, client revisions as a list, assembly and a delivery checklist. Core rule: the client approves the preproduction package before the first video frame, and the approved character and location sheets go as references into every generation. Use when a brief arrives for an advertising or product AI video. Triggers: 'client AI video', 'preproduction package', 'character sheet', 'location sheet'. Not for articles or covers (use blog-article and article-cover). Triggers (RU): «вот бриф», «новый клиент», «концепт студия», «препродакшн-пакет», «лист персонажа», «лист локации», «презентация клиенту», «правки от клиента», «готовим сдачу»."
 ---
 
 # Concept studio: клиентский AI-ролик от брифа до сдачи
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

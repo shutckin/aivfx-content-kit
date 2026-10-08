@@ -1,9 +1,11 @@
 ---
 name: website-build
-description: Сборка сайта для студии или маленького бизнеса силами агента от описания до выката. Короткий бриф перед работой (понял так, беру по умолчанию, до 3 вопросов с готовыми ответами, что владелец мог упустить, что не делаю), референсы и стиль, сборка, обязательная проверка в браузере на телефоне и компьютере, скорость и консоль, финальный дизайн-аудит, заявки с сайта в Telegram как схема, очередь выката в DEPLOY-QUEUE.md и выкат только по прямому слову владельца пачкой, холодная проверка себя отдельным агентом в конце. Включай, когда просят «сделай сайт», «собери лендинг», «сайт для студии», «страница услуг», «переделай сайт», «добавь раздел на сайт», «сайт-визитка», «подготовь к выкату», а также "build a website", "make a landing page", "small business site", "studio website", "add a section to the site".
+description: "Builds a site for a studio or small business with an agent, from description to release. A short brief before work (how I understood it, defaults I take, up to 3 questions with ready answers, what the owner may have missed, what I will not do), references and style, the build, a mandatory browser check on phone and desktop, speed and console, a final design audit, site leads to Telegram as a pattern, a release queue in DEPLOY-QUEUE.md and batch release only on the owner's direct word, and a cold self-review by a separate agent at the end. Triggers: 'build a website', 'make a landing page', 'small business site', 'studio website', 'add a section to the site', 'prepare for release'. Triggers (RU): «сделай сайт», «собери лендинг», «сайт для студии», «страница услуг», «переделай сайт», «добавь раздел на сайт», «сайт-визитка», «подготовь к выкату»."
 ---
 
 # Сайт для студии или маленького бизнеса
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

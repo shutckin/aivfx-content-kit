@@ -1,9 +1,11 @@
 ---
 name: article-cover
-description: Обложки и картинки для статей, гайдов и страниц через генеративные модели (Seedream, Nano Banana, GPT-Image, Midjourney, Higgsfield и другие). Ставит кадр одной мысли статьи вместо натюрморта, проверяет стоп-лист до генерации, вшивает логотипы брендов в кадр за один проход, держит соотношение сторон параметром модели, ширину под вёрстку и новое имя файла, показывает владельцу 2-3 варианта до вставки и пишет подпись по самому кадру. Включай, когда просят «сделай обложку», «картинку к статье», «визуал для поста», «hero для страницы», «обложка для гайда», «перегенери обложку», «поставь логотипы на обложку», «подпись к картинке», а также "article cover", "blog header image", "hero image", "thumbnail for the post", "generate a cover".
+description: "Creates covers and images for articles, guides and pages with generative models (Seedream, Nano Banana, GPT-Image, Midjourney, Higgsfield and others). Frames the single idea of the article instead of a still life, checks a stop list before generating, bakes brand logos into the frame in one pass, passes aspect ratio as a model parameter, keeps width for the layout and a new file name, shows the owner 2-3 options before inserting, and writes the caption from the actual frame. Use when a cover or post visual is requested. Triggers: 'article cover', 'blog header image', 'hero image', 'thumbnail for the post', 'generate a cover', 'regenerate the cover'. Triggers (RU): «сделай обложку», «картинку к статье», «визуал для поста», «hero для страницы», «обложка для гайда», «перегенери обложку», «поставь логотипы на обложку», «подпись к картинке»."
 ---
 
 # Обложки статей через генерацию
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

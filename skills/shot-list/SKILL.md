@@ -1,9 +1,11 @@
 ---
 name: shot-list
-description: Раскадровка ролика из сценария, закадрового текста или брифа - таблица кадров (таймкод, тип кадра, реплика или закадр, визуал, длительность, источник - съёмка, генерация, архив, сток, моушен, скриншот), правила разбивки и темпа под площадку, съёмочный план по локациям, план генераций, список архива и графики, замечания по сценарию. В комплекте скрипт, который проверяет таблицу - сумма длительностей против целевой, пустые ячейки, слишком длинные кадры, сбитые таймкоды. Включай на фразы «раскадровка», «разбей сценарий на кадры», «шот-лист», «что снимать под текст», «какие перебивки», «план съёмки», «чем накрыть закадр», «сколько кадров на 30 секунд», а также "shot list", "storyboard from script", "break down the script", "b-roll plan", "shooting plan".
+description: "Builds a shot list from a script, voiceover or brief: a table of shots (timecode, shot type, line or voiceover, visual, duration, source: shoot, generation, archive, stock, motion, screenshot), rules for breakdown and pacing per platform, a shooting plan by location, a generation plan, an archive and graphics list, and script notes. Includes a script that checks the table: total duration against target, empty cells, overly long shots, broken timecodes. Use when a script needs to become shots. Triggers: 'shot list', 'storyboard from script', 'break down the script', 'b-roll plan', 'shooting plan', 'how many shots for 30 seconds'. Triggers (RU): «раскадровка», «разбей сценарий на кадры», «шот-лист», «что снимать под текст», «какие перебивки», «план съёмки», «чем накрыть закадр», «сколько кадров на 30 секунд»."
 ---
 
 # Раскадровка из сценария
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

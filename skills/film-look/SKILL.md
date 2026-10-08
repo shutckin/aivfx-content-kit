@@ -1,9 +1,11 @@
 ---
 name: film-look
-description: Собирает «лук» (единый визуальный стиль) для промптов генеративных моделей картинок и видео и вшивает его в промпт под конкретную модель - Seedream, Nano Banana, GPT-Image, Midjourney, Seedance, Kling, Veo, Higgsfield и другие. Убирает нейронный перешарп, пластиковое «мыло» и HDR-вид, даёт мягкую плёночную картинку и держит один стиль во всех кадрах проекта. Три уровня лука (ядро, грейд, видео-блок), шесть пресетов в комплекте, включая фирменный лук студии AIVFX, опросник для своего лука, скрипт сборки промпта, который убирает соотношение сторон из текста и слова-ломатели, и скрипт проверки готового промпта. Включай, когда пишешь или правишь промпт для генерации, когда кадры проекта выглядят по-разному, когда картинка пересушена или пластиковая. Триггеры по-русски - «собери лук», «стиль для промптов», «пресет стиля», «плёночный вид», «убери перешарп», «убери мыло», «единый стиль кадров», «вшей лук в промпт»; по-английски - "look preset", "film look prompt", "style preset for image generation", "remove AI sharpening".
+description: "Builds a look (one visual style) for image and video generation prompts and bakes it into the prompt for a specific model: Seedream, Nano Banana, GPT-Image, Midjourney, Seedance, Kling, Veo, Higgsfield and others. Removes AI over-sharpening, plastic smoothing and the HDR look and keeps one soft film style across a project. Three look levels (core, grade, video block), six bundled presets including the AIVFX studio look, a questionnaire for your own look, a prompt builder script that strips aspect ratio and breaker words, and a prompt checker. Use when writing or editing a generation prompt, when project frames look inconsistent, or when images are oversharpened or plastic. Triggers: 'look preset', 'film look prompt', 'style preset for image generation', 'remove AI sharpening'. Triggers (RU): «собери лук», «стиль для промптов», «пресет стиля», «плёночный вид», «убери перешарп», «убери мыло», «единый стиль кадров», «вшей лук в промпт»."
 ---
 
 # Лук для генеративных промптов
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

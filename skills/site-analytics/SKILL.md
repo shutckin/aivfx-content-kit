@@ -1,9 +1,11 @@
 ---
 name: site-analytics
-description: Учёт для контентного сайта в рунете - дошли ли люди до цели. Проверяет, что Яндекс Метрика реально считает живой визит (а не просто стоит в коде), заводит цели на клик по партнёрской ссылке, заявку, открытие чата и переход в мессенджер, ставит свой переходник /go/<партнёр>?from=<страница>.<место> с отдельным журналом кликов в nginx и считает отчёт по журналу, разводит показы, клики, визиты и цели по Вебмастеру, Search Console и логам с поправкой на ботов, задержку панелей, страны и Cloudflare в РФ, собирает еженедельный отчёт «что изменилось после выката». Включай на фразы «проверь Метрику», «счётчик не считает», «мало визитов», «заведи цели», «считать клики по партнёрке», «сколько переходов по ссылке», «отчёт по трафику», «что дал выкат», «откуда люди», «логи nginx», «еженедельный отчёт», а также "analytics not tracking", "set up goals", "affiliate click tracking", "redirect tracking", "weekly traffic report", "did the deploy help".
+description: "Sets up tracking for a content site in the Russian web: did people reach the goal. Verifies that Yandex Metrica counts a real visit, not just sits in the code, creates goals for affiliate link clicks, leads, chat opens and messenger jumps, adds a /go/<partner>?from=<page>.<place> redirect with its own nginx click log and a report from it, reconciles impressions, clicks, visits and goals across Yandex Webmaster, Search Console and logs, correcting for bots, panel lag, countries and Cloudflare in Russia, and builds a weekly what changed after the release report. Triggers: 'analytics not tracking', 'set up goals', 'affiliate click tracking', 'redirect tracking', 'weekly traffic report', 'did the deploy help'. Triggers (RU): «проверь Метрику», «счётчик не считает», «мало визитов», «заведи цели», «считать клики по партнёрке», «сколько переходов по ссылке», «отчёт по трафику», «что дал выкат», «откуда люди», «логи nginx», «еженедельный отчёт»."
 ---
 
 # Учёт: дошли ли люди до цели
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

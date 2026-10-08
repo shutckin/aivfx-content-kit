@@ -1,9 +1,11 @@
 ---
 name: motion-graphics
-description: Моушен-графика для роликов на движке HyperFrames (сцена это HTML-композиция с анимацией, рендер в видео) с надстройкой студии AIVFX - плашки с именем, главы, цифры, хуки для Shorts и Reels, финальные карточки, титры. Бренд (цвета, шрифты, движение, отступы, длительности) живёт в одном файле, ролик описывается брифом по ролям сцен, движение задаётся словами, а агент собирает композиции и рендерит черновик поверх футажа и финал в ProRes 4444 с прозрачным фоном для монтажа. Даёт роли сцен, правила движения и тайминга, безопасные зоны 9:16 и 16:9, проверки (lint, чёрные кадры), чек-лист сдачи и скрипт проверки бренд-файла. Включай, когда просят «сделай плашку», «нижняя треть», «плашка с именем», «заставка», «глава», «титры», «хук для шортс», «финальная карточка», «моушен для ролика», «графика с альфой для монтажа», «заведи бренд для графики», «сделай на хайперфреймс», а также "lower third", "motion graphics", "chapter card", "shorts hook", "end card", "transparent overlay", "brand kit for motion", "HyperFrames".
+description: "Makes motion graphics on the HyperFrames engine (HTML scenes rendered to video) with an AIVFX studio layer: name lower thirds, chapters, numbers, Shorts and Reels hooks, end cards, titles. The brand (colors, fonts, motion, durations) lives in one file, the video is a brief of scene roles, motion is set in words, and the agent renders a draft over footage and a final ProRes 4444 with alpha. Gives timing rules, 9:16 and 16:9 safe zones, lint and black-frame checks, a delivery checklist and a brand file checker. Triggers: 'lower third', 'motion graphics', 'chapter card', 'shorts hook', 'end card', 'transparent overlay', 'brand kit for motion', 'HyperFrames'. Triggers (RU): «сделай плашку», «нижняя треть», «плашка с именем», «заставка», «глава», «титры», «хук для шортс», «финальная карточка», «моушен для ролика», «графика с альфой для монтажа», «заведи бренд для графики», «сделай на хайперфреймс»."
 ---
 
 # Моушен-графика для роликов
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

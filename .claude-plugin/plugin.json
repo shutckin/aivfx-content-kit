@@ -1,0 +1,10 @@
+{
+  "name": "aivfx-content-kit",
+  "displayName": "AIVFX Content Kit",
+  "description": "12 skills from an AI video studio: client AI video pipeline with character and location sheets, film-look prompts for Seedream, Kling and Seedance, HyperFrames motion graphics, YouTube thumbnails, Instagram and Threads carousels, blog articles, site analytics, website build and pre-launch security check",
+  "author": { "name": "Artem Shutkin", "url": "https://github.com/shutckin" },
+  "homepage": "https://github.com/shutckin/aivfx-content-kit",
+  "repository": "https://github.com/shutckin/aivfx-content-kit",
+  "license": "MIT",
+  "keywords": ["ai-video", "film-look", "seedream", "seedance", "kling", "higgsfield", "hyperframes", "motion-graphics", "youtube-thumbnail", "instagram", "threads", "storyboard", "character-sheet"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "aivfx",
+  "description": "AIVFX studio skills for Claude Code",
+  "owner": { "name": "Artem Shutkin", "url": "https://github.com/shutckin" },
+  "plugins": [
+    {
+      "name": "aivfx-content-kit",
+      "source": "./",
+      "description": "12 skills for AI video production, film-look prompts, HyperFrames motion, thumbnails, social carousels, blog and websites",
+      "category": "media",
+      "tags": ["ai-video", "film-look", "prompts", "motion-graphics", "content"]
+    }
+  ]
+}

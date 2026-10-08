@@ -1,9 +1,11 @@
 ---
 name: youtube-thumbnail
-description: Упаковка YouTube-роликов и Shorts - пак превью из 3-4 вариантов одной идеи для выбора и A/B-теста, заголовок и превью как одна связка, одна мысль на картинке, лицо и эмоция, крупный объект, текст до 3-4 слов или без текста, читаемость на маленьком экране телефона. Работает из своих кадров и скриншотов ролика плюс референсы, генерирует или дорабатывает кадр через модели (Nano Banana, Seedream, GPT-Image, Higgsfield и другие) с луком из film-look и логотипами в кадре за один проход, держит единую серию канала, проверяет файл скриптом (размер, вес, имя), а уменьшенный просмотр делает глазами на контактном листе, даёт понятные имена файлов и показывает варианты владельцу до загрузки. Включай, когда просят «сделай превью», «обложку для ролика», «обложку для YouTube», «упакуй ролик», «варианты для A/B-теста», «заголовок и превью», «обложку для Shorts», «серия превью для канала», а также "YouTube thumbnail", "video packaging", "thumbnail A/B test", "Shorts cover", "title and thumbnail".
+description: "Packages YouTube videos and Shorts: a pack of 3-4 thumbnail variants of one idea for choice and A/B testing, title and thumbnail as one unit, one idea per image, face and emotion, a large object, text up to 3-4 words or none, readable on a small phone screen. Works from own frames and screenshots plus references, generates or refines the frame with models (Nano Banana, Seedream, GPT-Image, Higgsfield and others) with the film-look style and logos in one pass, keeps a consistent channel series, checks the file with a script (size, weight, name), reviews the small view by eye on a contact sheet and shows options to the owner before upload. Triggers: 'YouTube thumbnail', 'video packaging', 'thumbnail A/B test', 'Shorts cover', 'title and thumbnail'. Triggers (RU): «сделай превью», «обложку для ролика», «обложку для YouTube», «упакуй ролик», «варианты для A/B-теста», «заголовок и превью», «обложку для Shorts», «серия превью для канала»."
 ---
 
 # Превью и упаковка YouTube-роликов
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

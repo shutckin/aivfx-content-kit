@@ -1,9 +1,11 @@
 ---
 name: security-check
-description: Аудит безопасности своего сайта или веб-приложения перед выкатом, понятный владельцу без технического опыта. Проверяет секреты в истории git, ключи в коде и в клиентской части, доступ к базе (правила RLS и права ролей), проверки прав на сервере, лимиты запросов, формы и XSS, заголовки безопасности, вебхуки, зависимости, и объясняет каждую находку простыми словами. Сначала отчёт целиком, исправления только после «да» владельца; при утечке ключа порядок: остановиться, сообщить, сменить ключ, искать похожие. Есть скрипт поиска похожих на ключи строк. Включай, когда просят «проверь безопасность», «аудит безопасности», «проверь сайт на дыры», «нет ли утечек ключей», «можно выкатывать с точки зрения безопасности», «ключ утёк», а также "security audit", "check for vulnerabilities", "leaked API key", "pre-deploy security check".
+description: "Audits the security of your own site or web app before release in terms a non-technical owner understands. Checks secrets in git history, keys in code and client bundles, database access (RLS rules and role grants), server-side permission checks, rate limits, forms and XSS, security headers, webhooks and dependencies, and explains each finding in plain words. Full report first, fixes only after the owner says yes. On a leaked key: stop, report, rotate the key, search for similar leaks. Includes a script that finds key-like strings. Triggers: 'security audit', 'check for vulnerabilities', 'leaked API key', 'pre-deploy security check', 'is it safe to deploy'. Triggers (RU): «проверь безопасность», «аудит безопасности», «проверь сайт на дыры», «нет ли утечек ключей», «можно выкатывать с точки зрения безопасности», «ключ утёк»."
 ---
 
 # Аудит безопасности перед выкатом
+
+> Instructions are in Russian. Respond in the user's language.
 
 ## Зачем
 

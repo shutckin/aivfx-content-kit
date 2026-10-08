@@ -1,5 +1,7 @@
 # AIVFX Content Kit
 
+English version: [README.en.md](README.en.md)
+
 Скиллы студии AI-видео и автоматизаций AIVFX для Claude Code и Codex. С ними агент работает так, как работает студия: клиентские AI-ролики, моушен, генерации с единым луком, соцсети, блог и сайты.
 
 12 скиллов в четырёх направлениях: **Видео**, **Генерации**, **Соцсети и блог**, **Сайты**. Каждый скилл можно взять отдельно, но лучше всего они работают связкой, как в студии.
@@ -336,15 +338,34 @@ $ python3 skills/shot-list/scripts/check_shotlist.py examples/video/04-shotlist.
 
 Код 0 не значит «работа хорошая»: скрипт видит числа, слова и символы, а не смысл. Глазами смотреть всё равно нужно.
 
-## Открыто, но не всё
+## Что открыто, а что нет
 
-Скиллы рабочие: по каждому можно сделать задачу от начала до конца. Открыты порядок этапов, правила, чек-листы, типичные ошибки и почему они случаются, форматы входа и выхода, проверочные скрипты и по одному короткому примеру.
+Открыто всё, что нужно, чтобы сделать задачу по скиллу от начала до конца: порядок этапов, правила, чек-листы, типичные ошибки и почему они случаются, форматы входа и выхода, проверочные скрипты и по одному короткому примеру на направление.
 
-Не выложены внутренние заготовки студии: полные шаблоны препродакшна и презентаций, библиотеки промптов, код фабрики моушена и библиотека шаблонов ролей, бренд-файлы, клиентские материалы. Их, разборы реальных проектов и настройку под команду студия AIVFX показывает в работе и в обучении: [aivfx.ru](https://aivfx.ru).
+Не выложены внутренние материалы студии: полные шаблоны препродакшна и презентаций, библиотеки промптов, код фабрики моушена и библиотека шаблонов ролей, бренд-файлы и клиентские материалы.
+
+Набор собран в студии AIVFX, [aivfx.ru](https://aivfx.ru).
 
 ## Установка
 
 Нужен Python 3 (для скриптов) и сам агент: Claude Code, Codex или оба. Для моушена дополнительно Node.js 22 или новее, ffmpeg и HyperFrames.
+
+### Плагином Claude Code
+
+Внутри Claude Code две команды:
+
+```text
+/plugin marketplace add shutckin/aivfx-content-kit
+/plugin install aivfx-content-kit@aivfx
+```
+
+### Через npx skills
+
+Подходит для Claude Code, Codex и других агентов, которые поддерживает этот установщик:
+
+```bash
+npx skills add shutckin/aivfx-content-kit
+```
 
 ### Через install.sh
 
@@ -458,12 +479,4 @@ MIT, см. [LICENSE](LICENSE).
 
 ## In English
 
-**AIVFX Content Kit** is a set of 12 skills for Claude Code and Codex from AIVFX, a small AI video and automation studio. With them the agent works the way the studio works: client AI videos, motion graphics, image and video generation in one consistent look, social media, a blog and websites.
-
-The kit is built around the studio's real stack: Claude Code runs the project; Higgsfield with Seedream 5 Pro and Nano Banana for stills, Seedance and Kling for video, Suno for music; HyperFrames (which renders ProRes 4444 with alpha itself), extended by the studio with a brand file, role-based scene briefs and draft-over-footage checks, for motion; Instagram, Threads and Pinterest via official APIs, posted on schedule from a server; React or Next.js on Vercel or an nginx server, Supabase, leads to Telegram and Notion; Yandex Metrica and Search Console for measurement.
-
-The flagship skill `ai-video-concept` is the studio's concept studio pipeline for client AI videos: brief with real product photos, synopsis in chat, character and location reference sheets with three options each, a 16:9 deck for approval, stills in waves with the approved sheets as references in every generation, the whole video as one Seedance prompt with the riskiest shot first, client edits as a numbered list, assembly and delivery checklist.
-
-Four areas: Video (`ai-video-concept`, `shot-list`, `archive-footage`, `motion-graphics`), Generation (`film-look` with six presets and the Dark Roast flagship, `article-cover`, `youtube-thumbnail`), Social and blog (`social-carousel`, `blog-article`, `site-analytics`), Websites (`website-build`, `security-check`). The agent never publishes, sends or deploys on its own: only on the owner's explicit word.
-
-Install: `bash install.sh` (both `~/.claude/skills` and `~/.codex/skills`), or `--claude` / `--codex`, or copy `skills/*` manually. Helper scripts are plain Python 3 with no dependencies and exit with code 1 on violations. Worked examples live in `examples/`. Skill texts are in Russian. The studio's internal templates, prompt libraries and motion factory code are not included. License: MIT. Author: Artem Shutkin, AIVFX studio, https://aivfx.ru. Business inquiries: connect@shootkin.com.
+English version of this README: [README.en.md](README.en.md).
