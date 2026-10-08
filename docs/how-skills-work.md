@@ -14,7 +14,7 @@
 - `scripts/` - скрипты-проверялки на Python (не во всех скиллах);
 - `templates/` - шаблоны файлов, которые агент заполняет: опросник брифа,
   лист персонажа, бриф обложки, недельный отчёт (не во всех скиллах);
-- иногда `presets/` и `examples/`, как в `aivfx-look`.
+- иногда `presets/` и `examples/`, как в `film-look`.
 
 Ставить пакеты не нужно. Агент читает текст и запускает
 скрипты так же, как запускал бы их человек в терминале.
@@ -47,14 +47,14 @@ Claude Code скиллы можно положить и внутрь одног�
    задачу, он открывает `SKILL.md` этого скилла целиком и дальше работает
    по нему: в каком порядке действовать, какие скрипты запускать, что
    нельзя делать.
-4. **Скилл может позвать другие.** `aivfx-concept` на своих этапах
-   говорит, какой скилл включать: раскадровка в `aivfx-shotlist`, лук в
-   `aivfx-look`, плашки в `aivfx-motion`, превью в `aivfx-thumb`. Так же
-   `aivfx-blog` зовёт `aivfx-cover` для обложки и `aivfx-track` для замера.
+4. **Скилл может позвать другие.** `ai-video-concept` на своих этапах
+   говорит, какой скилл включать: раскадровка в `shot-list`, лук в
+   `film-look`, плашки в `motion-graphics`, превью в `youtube-thumbnail`. Так же
+   `blog-article` зовёт `article-cover` для обложки и `site-analytics` для замера.
 
-Скилл можно вызвать и прямо по имени: «используй aivfx-concept, нужен
+Скилл можно вызвать и прямо по имени: «используй ai-video-concept, нужен
 лист персонажа для героя ролика». В Claude Code ещё можно набрать
-`/aivfx-concept`. Так надёжнее, если задача сформулирована необычно и
+`/ai-video-concept`. Так надёжнее, если задача сформулирована необычно и
 агент может не узнать её по описанию.
 
 ## Описание-триггер: самая важная строка
@@ -68,14 +68,14 @@ Claude Code скиллы можно положить и внутрь одног�
 - фразы, которыми люди на самом деле просят такую работу, по-русски и
   по-английски: «вот бриф», «лист персонажа», "character sheet";
 - когда скилл НЕ включать, если есть похожий: «Не включай для статей и
-  обложек (это aivfx-blog и aivfx-cover)».
+  обложек (это blog-article и article-cover)».
 
-Пример из набора (`aivfx-concept`, сокращено):
+Пример из набора (`ai-video-concept`, сокращено):
 
 ```yaml
 ---
-name: aivfx-concept
-description: Конвейер клиентского AI-ролика студии (concept studio) от брифа до сдачи - ... Включай, когда пришёл бриф на рекламный или продуктовый AI-ролик, на фразы «вот бриф», «новый клиент», «концепт студия», «лист персонажа», ... а также "client AI video", "character sheet". Не включай для статей и обложек (это aivfx-blog и aivfx-cover).
+name: ai-video-concept
+description: Конвейер клиентского AI-ролика студии (concept studio) от брифа до сдачи - ... Включай, когда пришёл бриф на рекламный или продуктовый AI-ролик, на фразы «вот бриф», «новый клиент», «концепт студия», «лист персонажа», ... а также "client AI video", "character sheet". Не включай для статей и обложек (это blog-article и article-cover).
 ---
 ```
 
@@ -87,8 +87,8 @@ description: Конвейер клиентского AI-ролика студи�
   лицо», а в описании только «консистентность персонажа»: агент не
   свяжет;
 - два скилла с почти одинаковыми описаниями. Разведи их словами «не
-  включай, когда...». Например, `aivfx-cover` (обложки статей) и
-  `aivfx-thumb` (превью роликов) прямо ссылаются друг на друга.
+  включай, когда...». Например, `article-cover` (обложки статей) и
+  `youtube-thumbnail` (превью роликов) прямо ссылаются друг на друга.
 
 Как проверить: открой новую сессию, напиши задачу своими словами и
 посмотри, какой скилл агент открыл. Не тот или никакой - правь описание.
@@ -97,7 +97,7 @@ description: Конвейер клиентского AI-ролика студи�
 
 ```markdown
 ---
-name: aivfx-example
+name: my-example
 description: Что делает скилл и на какие фразы включаться ...
 ---
 
@@ -152,16 +152,16 @@ Threads на 600 знаков, который площадка не примет
 код не 0, показывать рано. Например, в своём проекте:
 
 ```bash
-python3 ~/.claude/skills/aivfx-shotlist/scripts/check_shotlist.py раскадровка.md --target 30 --max 3 \
-  && python3 ~/.claude/skills/aivfx-look/scripts/check_prompt.py prompt.txt --preset aivfx-dark-roast --mode video \
+python3 ~/.claude/skills/shot-list/scripts/check_shotlist.py раскадровка.md --target 30 --max 3 \
+  && python3 ~/.claude/skills/film-look/scripts/check_prompt.py prompt.txt --preset dark-roast --mode video \
   && echo "можно показывать владельцу"
 ```
 
 Для статьи то же самое:
 
 ```bash
-python3 ~/.claude/skills/aivfx-blog/scripts/check_article.py статья.md \
-  && python3 ~/.claude/skills/aivfx-blog/scripts/check_text.py статья.md \
+python3 ~/.claude/skills/blog-article/scripts/check_article.py статья.md \
+  && python3 ~/.claude/skills/blog-article/scripts/check_text.py статья.md \
   && echo "можно показывать владельцу"
 ```
 
@@ -182,9 +182,9 @@ python3 ~/.claude/skills/aivfx-blog/scripts/check_article.py статья.md \
 перенести вручную. Поэтому удобнее держать свои правки в форке
 репозитория и ставить из него.
 
-### Свой лук для aivfx-look
+### Свой лук для film-look
 
-Пресеты лежат в `skills/aivfx-look/presets/*.json`. Самый простой путь:
+Пресеты лежат в `skills/film-look/presets/*.json`. Самый простой путь:
 скопируй похожий пресет под новым именем и поменяй поля.
 
 ```json
@@ -208,24 +208,24 @@ python3 ~/.claude/skills/aivfx-blog/scripts/check_article.py статья.md \
 - проверь пресет сборкой и проверкой:
 
 ```bash
-python3 skills/aivfx-look/scripts/build_prompt.py --preset my-brand --model seedream --mode photo "сцена" > prompt.txt
-python3 skills/aivfx-look/scripts/check_prompt.py prompt.txt --preset my-brand --mode photo
+python3 skills/film-look/scripts/build_prompt.py --preset my-brand --model seedream --mode photo "сцена" > prompt.txt
+python3 skills/film-look/scripts/check_prompt.py prompt.txt --preset my-brand --mode photo
 ```
 
-В `skills/aivfx-look/templates/look-brief.md` есть опросник, который
+В `skills/film-look/templates/look-brief.md` есть опросник, который
 помогает собрать свой лук с нуля. Новый лук сначала покажи владельцу на
 2-3 кадрах: он заходит в каждую генерацию проекта, и ошибка в нём
 размножается.
 
-### Свой бренд для aivfx-motion
+### Свой бренд для motion-graphics
 
 Бренд для графики живёт в одном файле. Скопируй
-`skills/aivfx-motion/templates/brand.example.json` в проект как
+`skills/motion-graphics/templates/brand.example.json` в проект как
 `brand.json`, поставь цвета из гайдлайна бренда (не придумывай за
 клиента), шрифты и правила бренда словами в поле `rules`. Проверь:
 
 ```bash
-python3 skills/aivfx-motion/scripts/check_brand.py brand.json
+python3 skills/motion-graphics/scripts/check_brand.py brand.json
 ```
 
 Скрипт поймает цвет не в hex, контраст текста ниже 4.5:1, моноширинный
@@ -233,9 +233,9 @@ python3 skills/aivfx-motion/scripts/check_brand.py brand.json
 интерфейс площадки. Бриф ролика (`scenes.json`) при этом не меняется:
 та же роль сцены соберётся в новом стиле.
 
-### Свой стоп-лист для aivfx-blog
+### Свой стоп-лист для blog-article
 
-Стоп-лист текста лежит в `skills/aivfx-blog/scripts/stoplist.txt`. Формат:
+Стоп-лист текста лежит в `skills/blog-article/scripts/stoplist.txt`. Формат:
 
 ```text
 ## Мой раздел
@@ -252,7 +252,7 @@ re:\bявля(ется|ются)\b => перестрой фразу
 проектом:
 
 ```bash
-python3 ~/.claude/skills/aivfx-blog/scripts/check_text.py статья.md --stoplist мой-стоплист.txt
+python3 ~/.claude/skills/blog-article/scripts/check_text.py статья.md --stoplist мой-стоплист.txt
 ```
 
 Правило набора: формулировку, которую владелец отклонил дважды, добавляй
@@ -260,8 +260,8 @@ python3 ~/.claude/skills/aivfx-blog/scripts/check_text.py статья.md --stop
 
 ### Свои версии для проверки свежести
 
-Скрипт свежести из `aivfx-blog` знает только то, что записано в таблице
-версий. В комплекте пример `skills/aivfx-blog/scripts/versions.example.json`.
+Скрипт свежести из `blog-article` знает только то, что записано в таблице
+версий. В комплекте пример `skills/blog-article/scripts/versions.example.json`.
 
 1. Скопируй его рядом со своими текстами: `cp .../versions.example.json мои_тексты/versions.json`.
 2. Сверь каждую версию по официальной странице сервиса (поле `source`) и
@@ -290,10 +290,10 @@ python3 ~/.claude/skills/aivfx-blog/scripts/check_text.py статья.md --stop
 - Агент сам сказал, какой скилл открыл, или действует по его порядку:
   например, на бриф ролика первым делом просит реальные фото продукта в
   трёх ракурсах и предлагает синопсис в чат, а не сразу генерацию (это
-  `aivfx-concept`).
+  `ai-video-concept`).
 - Агент запускает скрипты из папки скилла и показывает их вывод.
 - Если агент делает «по-своему», а скилл установлен, назови его прямо:
-  «работай по aivfx-concept».
+  «работай по ai-video-concept».
 
 ## Что делать, если что-то не так
 
@@ -301,7 +301,6 @@ python3 ~/.claude/skills/aivfx-blog/scripts/check_text.py статья.md --stop
 |---|---|
 | Агент не видит скилл | папка лежит в `~/.claude/skills/<имя>/`, внутри `SKILL.md`, имя папки совпадает с `name`; начата новая сессия |
 | Агент включает не тот скилл | описания двух скиллов похожи: допиши «не включай, когда...» |
-| Агент включает скилл, которого нет в наборе | осталась копия из прошлой версии набора: удали лишние папки `aivfx-*` из папки скиллов |
 | Скрипт пишет «No such file» | запускаешь не из той папки: дай полный путь к скрипту |
 | Скрипт падает на кириллице | файл не в UTF-8. Не правь кириллицу `sed` и `perl` без режима UTF-8, они режут байты букв |
 | `check_freshness.py` всегда падает | истёк срок таблицы: сверь версии и обнови `checked_at` |

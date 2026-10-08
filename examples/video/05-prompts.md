@@ -1,10 +1,10 @@
 # Промпты ключевых кадров
 
-> Бренд вымышленный, условно. Все промпты собраны реальным запуском `skills/aivfx-look/scripts/build_prompt.py` и проверены `check_prompt.py`. Сцена пишется своими словами, лук скрипт дописывает сам. Соотношение сторон передаётся параметром модели, в тексте промпта его нет.
+> Бренд вымышленный, условно. Все промпты собраны реальным запуском `skills/film-look/scripts/build_prompt.py` и проверены `check_prompt.py`. Сцена пишется своими словами, лук скрипт дописывает сам. Соотношение сторон передаётся параметром модели, в тексте промпта его нет.
 
 Какой лук где:
 
-- Кадры 3 и 11 (улица, трамвай, гость): `aivfx-dark-roast` с грейдом,
+- Кадры 3 и 11 (улица, трамвай, гость): `dark-roast` с грейдом,
   это атмосферный кадр без жёстких цветов.
 - Кадр 8 (стакан с логотипом): `neutral-product`. У стакана фирменный
   кремовый цвет и терракотовый логотип, тёплый грейд их бы увёл. Ядро у
@@ -18,7 +18,7 @@
 Скрипт их вырезал и предупредил об этом.
 
 ```
-$ python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model seedream --mode photo --aspect 9:16 "Early morning view from inside a small corner coffee shop through a rain-streaked window: a tram passes at dawn on a quiet street, wet cobblestones reflect the first streetlights, on the windowsill a ceramic cup with steam rising, empty space in the upper third of the frame for a title, no people in focus, natural imperfect sharpness, ultra detailed, 4:3." > prompt-a.txt
+$ python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model seedream --mode photo --aspect 9:16 "Early morning view from inside a small corner coffee shop through a rain-streaked window: a tram passes at dawn on a quiet street, wet cobblestones reflect the first streetlights, on the windowsill a ceramic cup with steam rising, empty space in the upper third of the frame for a title, no people in focus, natural imperfect sharpness, ultra detailed, 4:3." > prompt-a.txt
 Внимание: убрал из текста сцены соотношение сторон: 4:3. Передавай его параметром модели (--aspect).
 Внимание: убрал слова, которые ломают лук: ultra detailed
 ```
@@ -35,8 +35,8 @@ Early morning view from inside a small corner coffee shop through a rain-streake
 сторон в интерфейсе модели.
 
 ```
-$ python3 skills/aivfx-look/scripts/check_prompt.py prompt-a.txt --preset aivfx-dark-roast --mode photo
-Чисто: лук aivfx-dark-roast на месте, режим photo.
+$ python3 skills/film-look/scripts/check_prompt.py prompt-a.txt --preset dark-roast --mode photo
+Чисто: лук dark-roast на месте, режим photo.
 ```
 
 Код выхода 0. Сначала 3 варианта статики на выбор, анимация только от
@@ -48,7 +48,7 @@ $ python3 skills/aivfx-look/scripts/check_prompt.py prompt-a.txt --preset aivfx-
 берётся с референса, текстом его не описываем.
 
 ```
-$ python3 skills/aivfx-look/scripts/build_prompt.py --preset neutral-product --model nano-banana --mode photo --aspect 9:16 "Front packshot of a matte cream paper takeaway cup with a small terracotta logo stamp, exactly as in the reference photo of the real cup, standing on a pale oak counter, soft daylight from the left, plain warm grey wall behind, logo reproduced exactly from the reference, no random text, no extra logos." > prompt-b.txt
+$ python3 skills/film-look/scripts/build_prompt.py --preset neutral-product --model nano-banana --mode photo --aspect 9:16 "Front packshot of a matte cream paper takeaway cup with a small terracotta logo stamp, exactly as in the reference photo of the real cup, standing on a pale oak counter, soft daylight from the left, plain warm grey wall behind, logo reproduced exactly from the reference, no random text, no extra logos." > prompt-b.txt
 ```
 
 Готовый промпт (`prompt-b.txt`):
@@ -62,7 +62,7 @@ Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallo
 ```
 
 ```
-$ python3 skills/aivfx-look/scripts/check_prompt.py prompt-b.txt --preset neutral-product --mode photo
+$ python3 skills/film-look/scripts/check_prompt.py prompt-b.txt --preset neutral-product --mode photo
 Чисто: лук neutral-product на месте, режим photo.
 ```
 
@@ -77,7 +77,7 @@ $ python3 skills/aivfx-look/scripts/check_prompt.py prompt-b.txt --preset neutra
 модель искать говорящих.
 
 ```
-$ python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model kling --mode video --aspect 9:16 "Animate the approved still: the tram slowly crosses the frame from left to right, raindrops run down the glass, steam from the cup drifts upward, the streetlights flicker off one by one as the sky gets lighter, 3 seconds, no people appear." > prompt-c.txt
+$ python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model kling --mode video --aspect 9:16 "Animate the approved still: the tram slowly crosses the frame from left to right, raindrops run down the glass, steam from the cup drifts upward, the streetlights flicker off one by one as the sky gets lighter, 3 seconds, no people appear." > prompt-c.txt
 ```
 
 Готовый промпт (`prompt-c.txt`):
@@ -90,8 +90,8 @@ Style: Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8,
 ```
 
 ```
-$ python3 skills/aivfx-look/scripts/check_prompt.py prompt-c.txt --preset aivfx-dark-roast --mode video
-Чисто: лук aivfx-dark-roast на месте, режим video.
+$ python3 skills/film-look/scripts/check_prompt.py prompt-c.txt --preset dark-roast --mode video
+Чисто: лук dark-roast на месте, режим video.
 ```
 
 Код выхода 0. Строка движения камеры `Handheld with micro-drift` здесь к

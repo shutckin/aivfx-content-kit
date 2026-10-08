@@ -1,6 +1,6 @@
 # Бриф обложки: Почему картинки из нейросети выглядят пластиково
 
-Этап 4 скилла `aivfx-blog`, шаблон `skills/aivfx-cover/templates/cover-brief.md`. Делается только после согласования синопсиса.
+Этап 4 скилла `blog-article`, шаблон `skills/article-cover/templates/cover-brief.md`. Делается только после согласования синопсиса.
 
 ## 1. Статья
 
@@ -55,7 +55,7 @@
 Промпт собран скриптом лука, а не руками, чтобы ядро и грейд стояли дословно:
 
 ```bash
-python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model seedream --mode photo --aspect 16:9 "Soft daylight in an old tailor's workshop with tall windows, honey-oak cutting tables and bolts of wool on shelves. A middle-aged woman tailor with freckles, fine wrinkles and loose grey hair stands next to a glossy white plastic mannequin, both wearing identical tweed jackets. She pins the mannequin's sleeve and glances at its smooth waxy face with a dry half-smile, her own skin alive with pores and stray hairs. Editorial medium shot, window light from the left."
+python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model seedream --mode photo --aspect 16:9 "Soft daylight in an old tailor's workshop with tall windows, honey-oak cutting tables and bolts of wool on shelves. A middle-aged woman tailor with freckles, fine wrinkles and loose grey hair stands next to a glossy white plastic mannequin, both wearing identical tweed jackets. She pins the mannequin's sleeve and glances at its smooth waxy face with a dry half-smile, her own skin alive with pores and stray hairs. Editorial medium shot, window light from the left."
 ```
 
 Скрипт напечатал промпт и отдельной строкой `Параметр модели: aspect_ratio=16:9`. Первая строка вывода лежит в `04-cover-prompt.txt`, чтобы её проверили `check_prompt.py` и `check_cover.py --prompt` (в этом брифе есть слова стоп-листа и параметр соотношения сторон, на них проверка бы сработала).
@@ -71,8 +71,8 @@ python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --mo
 Проверка промпта:
 
 ```
-python3 skills/aivfx-look/scripts/check_prompt.py examples/04-cover-prompt.txt --preset aivfx-dark-roast --mode photo
-python3 skills/aivfx-cover/scripts/check_cover.py --prompt examples/04-cover-prompt.txt
+python3 skills/film-look/scripts/check_prompt.py examples/04-cover-prompt.txt --preset dark-roast --mode photo
+python3 skills/article-cover/scripts/check_cover.py --prompt examples/04-cover-prompt.txt
 ```
 
 ## 8. Варианты владельцу

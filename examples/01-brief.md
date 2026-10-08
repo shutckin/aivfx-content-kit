@@ -1,6 +1,6 @@
 # Бриф и спрос: «Почему картинки из нейросети выглядят пластиково»
 
-Этап 1 скилла `aivfx-blog`: тема из спроса и вопросов.
+Этап 1 скилла `blog-article`: тема из спроса и вопросов.
 
 > Цифры спроса в этом файле условные, для примера формата. Настоящие цифры берутся только из Вордстата владельца, с датой и регионом.
 
@@ -23,8 +23,8 @@
 Команда:
 
 ```bash
-python3 skills/aivfx-blog/scripts/suggest.py "нейросеть пластиковая" --out spros-plastik.csv
-python3 skills/aivfx-blog/scripts/suggest.py "промпт реалистичное фото" --out spros-realizm.csv
+python3 skills/blog-article/scripts/suggest.py "нейросеть пластиковая" --out spros-plastik.csv
+python3 skills/blog-article/scripts/suggest.py "промпт реалистичное фото" --out spros-realizm.csv
 ```
 
 Подсказки дают формулировки, но не частотность. Что попало в работу (список условный, для примера формата):

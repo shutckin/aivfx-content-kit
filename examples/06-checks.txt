@@ -3,13 +3,13 @@
 
 Сначала сборка промпта обложки (не проверка, а шаг этапа 4). Первая строка вывода сохранена в examples/04-cover-prompt.txt:
 
-$ python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model seedream --mode photo --aspect 16:9 "<сцена из 04-cover-brief.md>"
+$ python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model seedream --mode photo --aspect 16:9 "<сцена из 04-cover-brief.md>"
 Soft daylight in an old tailor's workshop with tall windows, honey-oak cutting tables and bolts of wool on shelves. A middle-aged woman tailor with freckles, fine wrinkles and loose grey hair stands next to a glossy white plastic mannequin, both wearing identical tweed jackets. She pins the mannequin's sleeve and glances at its smooth waxy face with a dry half-smile, her own skin alive with pores and stray hairs. Editorial medium shot, window light from the left. Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallow depth of field, halation on highlights, fine organic grain, lifted milky blacks, low contrast, no sharpening, no HDR. Dark Roast grade: terracotta-warm skin as the hero tone, honey-oak wood and amber tungsten pools, matte charcoal blacks, cool blue-grey window light, chromatic blue shadows.
 
 Параметр модели: aspect_ratio=16:9
 код выхода: 0
 
-$ python3 skills/aivfx-blog/scripts/check_article.py examples/05-article.md
+$ python3 skills/blog-article/scripts/check_article.py examples/05-article.md
 
 examples/05-article.md  «Почему картинки из нейросети выглядят пластиково и как это исправить»
   слов: 1148, H2: 10, вопросов: 5, внутренних ссылок: 3, description: 133
@@ -17,22 +17,22 @@ examples/05-article.md  «Почему картинки из нейросети 
 
 код выхода: 0
 
-$ python3 skills/aivfx-blog/scripts/check_text.py examples/05-article.md
+$ python3 skills/blog-article/scripts/check_text.py examples/05-article.md
 
 Файлов проверено: 1, правил в стоп-листе: 50.
 ИТОГ: по стоп-листу чисто. Это не значит, что текст живой: перечитай вслух.
 
 код выхода: 0
 
-$ python3 skills/aivfx-cover/scripts/check_cover.py --prompt examples/04-cover-prompt.txt
+$ python3 skills/article-cover/scripts/check_cover.py --prompt examples/04-cover-prompt.txt
 Чисто. Дальше глазами: зум на логотипы, руки, лица, смысл кадра.
 код выхода: 0
 
-$ python3 skills/aivfx-look/scripts/check_prompt.py examples/04-cover-prompt.txt --preset aivfx-dark-roast --mode photo
-Чисто: лук aivfx-dark-roast на месте, режим photo.
+$ python3 skills/film-look/scripts/check_prompt.py examples/04-cover-prompt.txt --preset dark-roast --mode photo
+Чисто: лук dark-roast на месте, режим photo.
 код выхода: 0
 
-$ python3 skills/aivfx-blog/scripts/check_freshness.py examples examples/versions.json --today 2026-10-08
+$ python3 skills/blog-article/scripts/check_freshness.py examples examples/versions.json --today 2026-10-08
 
 Файлов: 31, сервисов в таблице: 5, дата проверки: 2026-10-08.
 
@@ -42,7 +42,7 @@ $ python3 skills/aivfx-blog/scripts/check_freshness.py examples examples/version
 
 Тот же прогон, если запустить его позже срока жизни таблицы версий (45 дней от checked_at):
 
-$ python3 skills/aivfx-blog/scripts/check_freshness.py examples examples/versions.json --today 2026-11-20
+$ python3 skills/blog-article/scripts/check_freshness.py examples examples/versions.json --today 2026-11-20
 
 Файлов: 31, сервисов в таблице: 5, дата проверки: 2026-11-20.
 ОШИБКА ТАБЛИЦЫ: таблицу версий сверяли 63 дней назад (2026-09-18), дольше 45 ей верить нельзя.

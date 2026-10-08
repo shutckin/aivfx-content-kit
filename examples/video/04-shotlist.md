@@ -1,10 +1,10 @@
 # Раскадровка: «Минута до трамвая»
 
-> Бренд, люди, адрес и время работы вымышленные, условно. Формат по `skills/aivfx-shotlist/SKILL.md`.
+> Бренд, люди, адрес и время работы вымышленные, условно. Формат по `skills/shot-list/SKILL.md`.
 
 Параметры: Reels и Shorts, 9:16, 30 секунд, реклама, смена плана 2-3
 секунды, закадра нет, титры по стайл-шиту (`07-brand.json`), генерации в
-луке `aivfx-dark-roast`, предметка стакана на `neutral-product` (у бренда
+луке `dark-roast`, предметка стакана на `neutral-product` (у бренда
 фирменные цвета стакана, грейд их уводит).
 
 | # | Таймкод | Тип кадра | Реплика / закадр | Визуал | Длит. | Источник |
@@ -25,7 +25,7 @@
 ## Проверка таблицы
 
 ```
-$ python3 skills/aivfx-shotlist/scripts/check_shotlist.py examples/video/04-shotlist.md --target 30 --max 3
+$ python3 skills/shot-list/scripts/check_shotlist.py examples/video/04-shotlist.md --target 30 --max 3
 ```
 
 Вывод и код выхода лежат в `README.md` этой папки.
@@ -45,7 +45,7 @@ $ python3 skills/aivfx-shotlist/scripts/check_shotlist.py examples/video/04-shot
 ## План генераций
 
 - Кадр 3: улица и трамвай на рассвете от листа улицы A2
-  (`02b-location-sheet.md`), лук `aivfx-dark-roast`, 9:16 параметром.
+  (`02b-location-sheet.md`), лук `dark-roast`, 9:16 параметром.
   Сначала статика 3 варианта, потом анимация утверждённой.
 - Кадр 11: от утверждённого кадра 3, тот же лук, гость со спины, его
   куртка и рюкзак из листа персонажа (`02a-character-sheet.md`, вариант A).

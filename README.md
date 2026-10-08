@@ -16,7 +16,7 @@
 | Кадры и листы | Higgsfield: **Seedream 5 Pro** основная модель для кадров и листов персонажа и локации, **Nano Banana** (Pro или 2) для правки готового кадра по референсу и прогона вариантов; тот же Nano Banana через Flowith или аналог в браузере (на части тарифов агрегаторов без списания кредитов, проверь свой тариф) | агент генерирует после «да» владельца |
 | Видео | **Seedance** через Higgsfield: весь ролик одним промптом; **Kling** запасной, если Seedance не вытягивает движение | агент |
 | Музыка | **Suno** (или аналог), если она нужна по синопсису | агент пишет промпт, владелец слушает |
-| Единый лук | пресеты `aivfx-look` хвостом каждого промпта, флагман **Dark Roast** | агент, пресет утверждает владелец |
+| Единый лук | пресеты `film-look` хвостом каждого промпта, флагман **Dark Roast** | агент, пресет утверждает владелец |
 | Моушен | **HyperFrames, доработанный студией**: сцена это HTML-композиция с анимацией GSAP, рендер движка в ProRes 4444 с прозрачным фоном, поверх него бренд в одном файле и бриф по ролям сцен | агент собирает, владелец утверждает черновик |
 | Монтаж | DaVinci Resolve (или Premiere, Final Cut) | владелец или монтажёр |
 | Соцсети | **Instagram** и **Threads** (и Pinterest) через официальные API, публикация **по расписанию с сервера** (GitHub Actions, VPS), а не с ноутбука; текст на карусели ставит слой вёрстки | агент собирает партию, владелец утверждает |
@@ -43,7 +43,7 @@
 
 ## Concept studio: как студия делает клиентский AI-ролик
 
-Это главное, что умеет набор. Скилл `aivfx-concept` ведёт рекламный или продуктовый AI-ролик для клиента от брифа до сдачи. Название от внутреннего конвейера студии: concept studio.
+Это главное, что умеет набор. Скилл `ai-video-concept` ведёт рекламный или продуктовый AI-ролик для клиента от брифа до сдачи. Название от внутреннего конвейера студии: concept studio.
 
 ### Зачем пакет до первого кадра
 
@@ -62,7 +62,7 @@
 
 ```mermaid
 flowchart TD
-    A["0. Приём брифа<br/>ТЗ, голосовые, скрины<br/>реальные фото продукта в 3 ракурсах"] --> B["1. Синопсис текстом в чат<br/>логлайн, кадры с таймкодами, звук<br/>aivfx-shotlist"]
+    A["0. Приём брифа<br/>ТЗ, голосовые, скрины<br/>реальные фото продукта в 3 ракурсах"] --> B["1. Синопсис текстом в чат<br/>логлайн, кадры с таймкодами, звук<br/>shot-list"]
     B --> C{"клиент: ок?"}
     C -- правки --> B
     C -- ок --> D["2. Лист персонажа<br/>3 варианта"]
@@ -70,11 +70,11 @@ flowchart TD
     E --> F["4. Презентация 16:9 в PDF"]
     F --> G{"клиент утверждает<br/>пакет"}
     G -- правки --> D
-    G -- да --> H["5. Статика волнами<br/>листы идут референсами в каждый кадр<br/>Seedream 5 Pro + aivfx-look"]
+    G -- да --> H["5. Статика волнами<br/>листы идут референсами в каждый кадр<br/>Seedream 5 Pro + film-look"]
     H --> I["6. Видео одним промптом<br/>Seedance, рискованное место первым"]
     I --> J["7. Правки клиента<br/>нумерованным списком"]
-    J --> K["8. Сборка и сдача<br/>монтаж, звук, плашки aivfx-motion<br/>журнал источников aivfx-archive"]
-    K -.-> L["Превью для канала<br/>aivfx-thumb"]
+    J --> K["8. Сборка и сдача<br/>монтаж, звук, плашки motion-graphics<br/>журнал источников archive-footage"]
+    K -.-> L["Превью для канала<br/>youtube-thumbnail"]
 ```
 
 Ромбы это места, где работа стоит, пока клиент не ответил. Состояние проекта живёт в одном файле (`status.md`): какой этап, что утверждено, чего ждём. Новая сессия агента начинает с него.
@@ -99,7 +99,7 @@ flowchart TD
 
 - шапка: герой, локация, продукт, цвет, звук, то есть всё, что одинаково во всех шотах;
 - шоты с таймкодами, у каждого короткое имя-якорь («коробка», «саше», «финал»);
-- хвостом лук из `aivfx-look`.
+- хвостом лук из `film-look`.
 
 Писать «как на референсе 4» бесполезно: картинки уходят в модель в произвольном порядке. Консистентность держит описание в шапке.
 
@@ -125,12 +125,12 @@ flowchart TD
 
 | Этап | Скилл | Что даёт |
 |---|---|---|
-| 0-8, весь конвейер | `aivfx-concept` | порядок этапов, опросник брифа, составы листов, чек-лист пакета и сдачи |
-| 1. Синопсис | `aivfx-shotlist` | покадровая таблица с таймкодами и источником каждого кадра, проверка хронометража скриптом |
-| 2-6. Листы, статика, видео | `aivfx-look` | один лук на все генерации проекта, соотношение сторон только параметром |
-| 1 и 8. Архив, если нужен | `aivfx-archive` | поиск архивных кадров и журнал лицензий в сдачу |
-| 8. Сборка | `aivfx-motion` | плашки, титры, финальная карточка с прозрачным фоном |
-| после сдачи | `aivfx-thumb` | превью и заголовок, если ролик идёт на канал |
+| 0-8, весь конвейер | `ai-video-concept` | порядок этапов, опросник брифа, составы листов, чек-лист пакета и сдачи |
+| 1. Синопсис | `shot-list` | покадровая таблица с таймкодами и источником каждого кадра, проверка хронометража скриптом |
+| 2-6. Листы, статика, видео | `film-look` | один лук на все генерации проекта, соотношение сторон только параметром |
+| 1 и 8. Архив, если нужен | `archive-footage` | поиск архивных кадров и журнал лицензий в сдачу |
+| 8. Сборка | `motion-graphics` | плашки, титры, финальная карточка с прозрачным фоном |
+| после сдачи | `youtube-thumbnail` | превью и заголовок, если ролик идёт на канал |
 
 Пример целиком, от брифа до сдачи: [examples/video/](examples/video/).
 
@@ -138,14 +138,14 @@ flowchart TD
 
 ### Видео
 
-Клиентские ролики и всё, что вокруг них: от брифа и раскадровки до архива и моушена. Главный здесь `aivfx-concept`, остальные три он зовёт на своих этапах.
+Клиентские ролики и всё, что вокруг них: от брифа и раскадровки до архива и моушена. Главный здесь `ai-video-concept`, остальные три он зовёт на своих этапах.
 
 | Скилл | Что делает | На чём работает | Срабатывает на | Что внутри |
 |---|---|---|---|---|
-| `aivfx-concept` | клиентский AI-ролик от брифа до сдачи: препродакшн-пакет, листы, презентация, статика волнами, видео, правки, сдача | Claude Code, Seedream 5 Pro и Nano Banana через Higgsfield, Seedance, Kling, Suno, DaVinci Resolve | «вот бриф», «новый клиент», «концепт студия», «лист персонажа», «правки от клиента» | шаблоны `brief-questions.md`, `character-sheet.md`, `location-sheet.md`, `preprod-checklist.md` |
-| `aivfx-shotlist` | раскадровка из сценария или закадра: таймкоды, тип кадра, источник, темп под площадку, производные списки | таблица markdown, Seedream и Nano Banana для кадров `генерация`, Seedance для ролика целиком | «раскадровка», «разбей сценарий на кадры», «shot list» | `check_shotlist.py`, пример таблицы |
-| `aivfx-archive` | архивный футаж, фото и документы под готовый сценарий: где искать, как читать лицензию, журнал источников | archive.org, Wikimedia Commons, открытые музейные фонды, yt-dlp (только там, где скачивание разрешают правила площадки или лицензия файла), ffmpeg | «найди архив», «футаж под сценарий», «какая лицензия» | шаблон `sources-log.md` |
-| `aivfx-motion` | плашки, главы, цифры, хуки для Shorts, финальные карточки по бренд-файлу | HyperFrames, доработанный студией; GSAP, ffmpeg, ProRes 4444, DaVinci Resolve | «сделай плашку», «титры», «хук для шортс», «сделай на хайперфреймс» | `check_brand.py`, `brand.example.json`, `scenes.example.json` |
+| `ai-video-concept` | клиентский AI-ролик от брифа до сдачи: препродакшн-пакет, листы, презентация, статика волнами, видео, правки, сдача | Claude Code, Seedream 5 Pro и Nano Banana через Higgsfield, Seedance, Kling, Suno, DaVinci Resolve | «вот бриф», «новый клиент», «концепт студия», «лист персонажа», «правки от клиента» | шаблоны `brief-questions.md`, `character-sheet.md`, `location-sheet.md`, `preprod-checklist.md` |
+| `shot-list` | раскадровка из сценария или закадра: таймкоды, тип кадра, источник, темп под площадку, производные списки | таблица markdown, Seedream и Nano Banana для кадров `генерация`, Seedance для ролика целиком | «раскадровка», «разбей сценарий на кадры», «shot list» | `check_shotlist.py`, пример таблицы |
+| `archive-footage` | архивный футаж, фото и документы под готовый сценарий: где искать, как читать лицензию, журнал источников | archive.org, Wikimedia Commons, открытые музейные фонды, yt-dlp (только там, где скачивание разрешают правила площадки или лицензия файла), ffmpeg | «найди архив», «футаж под сценарий», «какая лицензия» | шаблон `sources-log.md` |
+| `motion-graphics` | плашки, главы, цифры, хуки для Shorts, финальные карточки по бренд-файлу | HyperFrames, доработанный студией; GSAP, ffmpeg, ProRes 4444, DaVinci Resolve | «сделай плашку», «титры», «хук для шортс», «сделай на хайперфреймс» | `check_brand.py`, `brand.example.json`, `scenes.example.json` |
 
 **Моушен построен на HyperFrames.** HyperFrames это открытый движок от HeyGen: сцена там HTML-файл с таймлайном GSAP, рендер в видео. Сам движок даёт композиции, предпросмотр в браузере, рендер в MP4, WebM и MOV ProRes 4444 с прозрачностью (`--format mov`), свои проверки `lint`, `check` и `validate` (в том числе контраст текста) и реестр готовых блоков. Студия добавила поверх:
 
@@ -160,15 +160,15 @@ flowchart TD
 
 ### Генерации
 
-Картинки и кадры для всего остального: роликов, обложек статей, превью, каруселей. Общее у всех одно: лук из `aivfx-look` хвостом каждого промпта и соотношение сторон только параметром модели.
+Картинки и кадры для всего остального: роликов, обложек статей, превью, каруселей. Общее у всех одно: лук из `film-look` хвостом каждого промпта и соотношение сторон только параметром модели.
 
 | Скилл | Что делает | На чём работает | Срабатывает на | Что внутри |
 |---|---|---|---|---|
-| `aivfx-look` | единый плёночный лук для промптов картинок и видео: убирает перешарп, пластик и HDR-вид | Higgsfield (CLI или веб): Seedream 5 Pro, Nano Banana, Seedance, Kling, Veo; Flowith или аналог | «собери лук», «убери перешарп», «вшей лук в промпт» | `build_prompt.py`, `check_prompt.py`, 6 пресетов, опросник `look-brief.md`, 3 примера |
-| `aivfx-cover` | обложки статей: кадр одной мысли вместо натюрморта, стоп-лист, логотипы в кадре за один проход, 2-3 варианта | Seedream 5 Pro через Higgsfield, Nano Banana для правки, PNG-логотипы, webp | «сделай обложку», «картинку к статье», «hero для страницы» | `check_cover.py`, шаблон `cover-brief.md` |
-| `aivfx-thumb` | пак превью YouTube и Shorts: 3-4 концепта одной мысли, связка с заголовком, серия канала | кадры ролика как референсы, Seedream 5 Pro и Nano Banana, Photoshop для кириллицы | «сделай превью», «упакуй ролик», «thumbnail» | `check_thumb.py`, бриф `thumb-brief.md` |
+| `film-look` | единый плёночный лук для промптов картинок и видео: убирает перешарп, пластик и HDR-вид | Higgsfield (CLI или веб): Seedream 5 Pro, Nano Banana, Seedance, Kling, Veo; Flowith или аналог | «собери лук», «убери перешарп», «вшей лук в промпт» | `build_prompt.py`, `check_prompt.py`, 6 пресетов, опросник `look-brief.md`, 3 примера |
+| `article-cover` | обложки статей: кадр одной мысли вместо натюрморта, стоп-лист, логотипы в кадре за один проход, 2-3 варианта | Seedream 5 Pro через Higgsfield, Nano Banana для правки, PNG-логотипы, webp | «сделай обложку», «картинку к статье», «hero для страницы» | `check_cover.py`, шаблон `cover-brief.md` |
+| `youtube-thumbnail` | пак превью YouTube и Shorts: 3-4 концепта одной мысли, связка с заголовком, серия канала | кадры ролика как референсы, Seedream 5 Pro и Nano Banana, Photoshop для кириллицы | «сделай превью», «упакуй ролик», «thumbnail» | `check_thumb.py`, бриф `thumb-brief.md` |
 
-**Шесть пресетов лука.** Флагман `aivfx-dark-roast`: фирменный лук студии, 35 мм, плёнка Kodak Vision3 500T, тёплая кожа, холодный свет из окна. Для людей, интерьера, еды, lifestyle. Остальные: `neutral-product` (то же ядро без грейда, для предметки и фирменных цветов), `nordic-cold`, `neon-night`, `documentary-16mm`, `silver-bw`.
+**Шесть пресетов лука.** Флагман `dark-roast`: фирменный лук студии, 35 мм, плёнка Kodak Vision3 500T, тёплая кожа, холодный свет из окна. Для людей, интерьера, еды, lifestyle. Остальные: `neutral-product` (то же ядро без грейда, для предметки и фирменных цветов), `nordic-cold`, `neon-night`, `documentary-16mm`, `silver-bw`.
 
 ### Соцсети и блог
 
@@ -176,9 +176,9 @@ flowchart TD
 
 | Скилл | Что делает | На чём работает | Срабатывает на | Что внутри |
 |---|---|---|---|---|
-| `aivfx-social` | карусели и посты Instagram и Threads на неделю: темы из вопросов, кадры, вёрстка, отдельный пост Threads, публикация с сервера, ревизия | Seedream 5 Pro или Nano Banana через Higgsfield, слой вёрстки HTML и CSS, Instagram Graph API, Threads API, Pinterest, крон на сервере | «сделай карусель», «пост в тредс», «контент-план на неделю», «автопостинг» | `check_post.py`, `carousel-brief.md`, `week-plan.md`, пример партии |
-| `aivfx-blog` | статья от темы до выката и замера: синопсис с тремя углами, факты с датой, текст волнами, проверки, индексация | Search Console, Вебмастер, живые вопросы, Claude Code с субагентами, IndexNow; Вордстат и подсказки дополнительно | «напиши статью», «о чём писать», «обнови старую статью», «убери нейросеть из текста» | `check_article.py`, `check_text.py`, `check_freshness.py`, `suggest.py`, шаблоны `synopsis.md`, `facts.md`, `deploy-queue-entry.md` |
-| `aivfx-track` | работает ли Метрика на самом деле, цели, переходник `/go/` с журналом кликов, недельный отчёт | Яндекс Метрика, Search Console, Вебмастер, nginx | «проверь Метрику», «сколько кликов по партнёрке», «что дал выкат» | `clicks_report.py`, `go-redirect.nginx.conf`, эталон Метрики, `weekly-report.md` |
+| `social-carousel` | карусели и посты Instagram и Threads на неделю: темы из вопросов, кадры, вёрстка, отдельный пост Threads, публикация с сервера, ревизия | Seedream 5 Pro или Nano Banana через Higgsfield, слой вёрстки HTML и CSS, Instagram Graph API, Threads API, Pinterest, крон на сервере | «сделай карусель», «пост в тредс», «контент-план на неделю», «автопостинг» | `check_post.py`, `carousel-brief.md`, `week-plan.md`, пример партии |
+| `blog-article` | статья от темы до выката и замера: синопсис с тремя углами, факты с датой, текст волнами, проверки, индексация | Search Console, Вебмастер, живые вопросы, Claude Code с субагентами, IndexNow; Вордстат и подсказки дополнительно | «напиши статью», «о чём писать», «обнови старую статью», «убери нейросеть из текста» | `check_article.py`, `check_text.py`, `check_freshness.py`, `suggest.py`, шаблоны `synopsis.md`, `facts.md`, `deploy-queue-entry.md` |
+| `site-analytics` | работает ли Метрика на самом деле, цели, переходник `/go/` с журналом кликов, недельный отчёт | Яндекс Метрика, Search Console, Вебмастер, nginx | «проверь Метрику», «сколько кликов по партнёрке», «что дал выкат» | `clicks_report.py`, `go-redirect.nginx.conf`, эталон Метрики, `weekly-report.md` |
 
 Главные грабли соцсетей, которые скилл закрывает: Threads отказывает при тексте длиннее 500 знаков, а Instagram берёт 2200, поэтому одна подпись в оба канала роняет Threads уже после Instagram. Опубликованный пост Instagram через API не удалить, значит повтор шага публикации при обрыве сети запрещён. Ноутбук засыпает и пропускает крон молча, поэтому публикует сервер.
 
@@ -188,30 +188,30 @@ flowchart TD
 
 | Скилл | Что делает | На чём работает | Срабатывает на | Что внутри |
 |---|---|---|---|---|
-| `aivfx-site` | сайт от описания до выката: бриф на один экран, референсы, сборка, проверка в браузере на телефоне и компьютере, дизайн-аудит, очередь выката | Claude Code, React или Next.js, Vercel или свой сервер с nginx за Cloudflare, заявки в Telegram и Notion | «сделай сайт», «собери лендинг», «добавь раздел на сайт» | шаблоны `brief.md`, `deploy-queue.md` |
-| `aivfx-secure` | аудит безопасности своего сайта простыми словами: ключи в коде и в истории git, доступ к базе, формы, заголовки; сначала отчёт, правки после «да» | Supabase (правила RLS), `.env` и переменные хостинга, история git, nginx или Cloudflare | «проверь безопасность», «нет ли ключей в коде», «ключ утёк» | `scan_secrets.py` |
+| `website-build` | сайт от описания до выката: бриф на один экран, референсы, сборка, проверка в браузере на телефоне и компьютере, дизайн-аудит, очередь выката | Claude Code, React или Next.js, Vercel или свой сервер с nginx за Cloudflare, заявки в Telegram и Notion | «сделай сайт», «собери лендинг», «добавь раздел на сайт» | шаблоны `brief.md`, `deploy-queue.md` |
+| `security-check` | аудит безопасности своего сайта простыми словами: ключи в коде и в истории git, доступ к базе, формы, заголовки; сначала отчёт, правки после «да» | Supabase (правила RLS), `.env` и переменные хостинга, история git, nginx или Cloudflare | «проверь безопасность», «нет ли ключей в коде», «ключ утёк» | `scan_secrets.py` |
 
 ## Как направления связаны
 
 ```mermaid
 flowchart LR
-    LOOK["aivfx-look<br/>единый лук"]
+    LOOK["film-look<br/>единый лук"]
     subgraph V["Видео"]
-        CONCEPT["aivfx-concept"] --> SHOT["aivfx-shotlist"]
-        SHOT --> ARCH["aivfx-archive"]
-        CONCEPT --> MOTION["aivfx-motion"]
+        CONCEPT["ai-video-concept"] --> SHOT["shot-list"]
+        SHOT --> ARCH["archive-footage"]
+        CONCEPT --> MOTION["motion-graphics"]
     end
     subgraph G["Генерации"]
-        COVER["aivfx-cover"]
-        THUMB["aivfx-thumb"]
+        COVER["article-cover"]
+        THUMB["youtube-thumbnail"]
     end
     subgraph S["Соцсети и блог"]
-        SOCIAL["aivfx-social"]
-        BLOG["aivfx-blog"]
-        TRACK["aivfx-track"]
+        SOCIAL["social-carousel"]
+        BLOG["blog-article"]
+        TRACK["site-analytics"]
     end
     subgraph W["Сайты"]
-        SITE["aivfx-site"] --> SECURE["aivfx-secure"]
+        SITE["website-build"] --> SECURE["security-check"]
     end
     LOOK --> CONCEPT
     LOOK --> COVER
@@ -227,7 +227,7 @@ flowchart LR
 - **Лук идёт во все генерации:** кадры ролика, обложки, превью, карусели. Один пресет на проект, иначе кадры выглядят как из разных фильмов.
 - **Concept зовёт motion и thumb:** плашки и титры на сборке, превью, если ролик идёт на канал.
 - **Social и blog сдают замер в track:** через неделю после выката видно, дошли ли люди до цели.
-- **Blog берёт обложки у cover,** а сами статьи живут в репозитории сайта, который собран по `aivfx-site`.
+- **Blog берёт обложки у cover,** а сами статьи живут в репозитории сайта, который собран по `website-build`.
 
 ## Лук для генераций
 
@@ -244,7 +244,7 @@ flowchart LR
 Реальный вывод сборки для кадра ролика в Seedance:
 
 ```text
-$ python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model seedance --mode video --aspect 9:16 "A guest waits at a tram stop at dawn, steam rises from a paper cup, 8k ultra detailed, 16:9"
+$ python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model seedance --mode video --aspect 9:16 "A guest waits at a tram stop at dawn, steam rises from a paper cup, 8k ultra detailed, 16:9"
 Внимание: убрал из текста сцены соотношение сторон: 16:9. Передавай его параметром модели (--aspect).
 Внимание: убрал слова, которые ломают лук: 8k, ultra detailed
 A guest waits at a tram stop at dawn, steam rises from a paper cup.
@@ -254,7 +254,7 @@ Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallo
 Параметр модели: aspect_ratio=9:16
 ```
 
-Последняя строка не часть промпта: это значение для поля соотношения сторон в интерфейсе модели. Список пресетов с подсказками, когда какой брать: `python3 skills/aivfx-look/scripts/build_prompt.py --list`.
+Последняя строка не часть промпта: это значение для поля соотношения сторон в интерфейсе модели. Список пресетов с подсказками, когда какой брать: `python3 skills/film-look/scripts/build_prompt.py --list`.
 
 ## Примеры
 
@@ -269,12 +269,12 @@ Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallo
 5. `04-shotlist.md` - таблица 12 кадров на 30 секунд, съёмочный план и план генераций.
 6. `05-prompts.md` - промпты, собранные `build_prompt.py`, и их проверка.
 7. `06-sources-log.md` - журнал источников.
-8. `07-brand.json` и `08-scenes.json` - бренд-файл и сцены графики для `aivfx-motion`.
+8. `07-brand.json` и `08-scenes.json` - бренд-файл и сцены графики для `motion-graphics`.
 9. `09-revisions.md` - два круга правок списком, «это новый круг», чек-лист сдачи.
 
 **[examples/thumb/](examples/thumb/)** - пак превью для ролика: бриф с четырьмя концептами одной мысли, промпт с луком и вывод `check_thumb.py`.
 
-**[examples/](examples/)** (корень) - одна статья блога через `aivfx-blog`, от темы до недельного замера:
+**[examples/](examples/)** (корень) - одна статья блога через `blog-article`, от темы до недельного замера:
 
 1. `01-brief.md` - тема из спроса и вопросов.
 2. `02-synopsis.md` - три угла и выбранный.
@@ -299,24 +299,24 @@ Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallo
 
 | Скилл | Команда | Что проверяет |
 |---|---|---|
-| `aivfx-shotlist` | `python3 skills/aivfx-shotlist/scripts/check_shotlist.py examples/video/04-shotlist.md --target 30 --max 3` | сумма длительностей против цели (`--tolerance`, по умолчанию 1 с), пустые ячейки, кадры дольше `--max`, источник из списка, таймкоды встык |
-| `aivfx-motion` | `python3 skills/aivfx-motion/scripts/check_brand.py examples/video/07-brand.json` | обязательные поля, цвета в hex, контраст не ниже 4.5:1, без моноширинных шрифтов, кегль, тайминги, безопасные зоны |
-| `aivfx-look` | `python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model seedream --mode photo --aspect 3:4 "сцена"` | не проверялка, а сборка: сцена плюс лук под модель, соотношение сторон отдельно; `--list`, `--no-grade`, `--file` |
-| `aivfx-look` | `python3 skills/aivfx-look/scripts/check_prompt.py examples/04-cover-prompt.txt --preset aivfx-dark-roast --mode photo` | ядро лука целиком, соотношение сторон в тексте, слова-ломатели, видео-блок в фото |
-| `aivfx-cover` | `python3 skills/aivfx-cover/scripts/check_cover.py cover.webp --width 1280 --ratio 16:9 --prompt prompt.txt` | ширина и пропорции файла (PNG, JPEG, WebP), стоп-лист в промпте, соотношение сторон в тексте, нет лука |
-| `aivfx-thumb` | `python3 skills/aivfx-thumb/scripts/check_thumb.py finals/*.jpg` | 1280x720 (или 1080x1920 с `--shorts`), вес до 2 МБ, имя латиницей; `--make-test` создаёт серый PNG для проверки самого скрипта |
-| `aivfx-social` | `python3 skills/aivfx-social/scripts/check_post.py skills/aivfx-social/examples/batch.example.json` | Threads до 500 знаков и не копия Instagram, Instagram до 2200 и до 30 хэштегов, альты, повтор раскладок, длинные тире; с `--publish` ещё «approved» и https-адреса |
-| `aivfx-blog` | `python3 skills/aivfx-blog/scripts/check_article.py examples/05-article.md` | фронтматтер, description до 160, FAQ и «?» у вопросов, число H2, тире, пустые ссылки, объём |
-| `aivfx-blog` | `python3 skills/aivfx-blog/scripts/check_text.py examples/05-article.md` | длинные тире и фразы из стоп-листа: канцелярит, штампы, выдуманный опыт; свой стоп-лист через `--stoplist` |
-| `aivfx-blog` | `python3 skills/aivfx-blog/scripts/check_freshness.py examples examples/versions.json --today 2026-10-08` | старые версии рядом с именем сервиса, сроки акций, прошлый год в заголовке, устаревшая таблица версий |
-| `aivfx-blog` | `python3 skills/aivfx-blog/scripts/suggest.py "seedance" --dry-run` | не проверялка, а сбор подсказок Google в CSV (`--out`, `--hl en`); `--dry-run` показывает план запросов без сети |
-| `aivfx-track` | `python3 skills/aivfx-track/scripts/clicks_report.py examples/08-clicks.log` | клики по партнёрам, страницам, местам и странам, отсев ботов и повторов, клики без метки (`--days`, `--window`) |
-| `aivfx-secure` | `python3 skills/aivfx-secure/scripts/scan_secrets.py папка-проекта/` | похожие на ключи строки в файлах и в истории git, `.env` в git; значения печатает с маской; `--no-git` без истории |
+| `shot-list` | `python3 skills/shot-list/scripts/check_shotlist.py examples/video/04-shotlist.md --target 30 --max 3` | сумма длительностей против цели (`--tolerance`, по умолчанию 1 с), пустые ячейки, кадры дольше `--max`, источник из списка, таймкоды встык |
+| `motion-graphics` | `python3 skills/motion-graphics/scripts/check_brand.py examples/video/07-brand.json` | обязательные поля, цвета в hex, контраст не ниже 4.5:1, без моноширинных шрифтов, кегль, тайминги, безопасные зоны |
+| `film-look` | `python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model seedream --mode photo --aspect 3:4 "сцена"` | не проверялка, а сборка: сцена плюс лук под модель, соотношение сторон отдельно; `--list`, `--no-grade`, `--file` |
+| `film-look` | `python3 skills/film-look/scripts/check_prompt.py examples/04-cover-prompt.txt --preset dark-roast --mode photo` | ядро лука целиком, соотношение сторон в тексте, слова-ломатели, видео-блок в фото |
+| `article-cover` | `python3 skills/article-cover/scripts/check_cover.py cover.webp --width 1280 --ratio 16:9 --prompt prompt.txt` | ширина и пропорции файла (PNG, JPEG, WebP), стоп-лист в промпте, соотношение сторон в тексте, нет лука |
+| `youtube-thumbnail` | `python3 skills/youtube-thumbnail/scripts/check_thumb.py finals/*.jpg` | 1280x720 (или 1080x1920 с `--shorts`), вес до 2 МБ, имя латиницей; `--make-test` создаёт серый PNG для проверки самого скрипта |
+| `social-carousel` | `python3 skills/social-carousel/scripts/check_post.py skills/social-carousel/examples/batch.example.json` | Threads до 500 знаков и не копия Instagram, Instagram до 2200 и до 30 хэштегов, альты, повтор раскладок, длинные тире; с `--publish` ещё «approved» и https-адреса |
+| `blog-article` | `python3 skills/blog-article/scripts/check_article.py examples/05-article.md` | фронтматтер, description до 160, FAQ и «?» у вопросов, число H2, тире, пустые ссылки, объём |
+| `blog-article` | `python3 skills/blog-article/scripts/check_text.py examples/05-article.md` | длинные тире и фразы из стоп-листа: канцелярит, штампы, выдуманный опыт; свой стоп-лист через `--stoplist` |
+| `blog-article` | `python3 skills/blog-article/scripts/check_freshness.py examples examples/versions.json --today 2026-10-08` | старые версии рядом с именем сервиса, сроки акций, прошлый год в заголовке, устаревшая таблица версий |
+| `blog-article` | `python3 skills/blog-article/scripts/suggest.py "seedance" --dry-run` | не проверялка, а сбор подсказок Google в CSV (`--out`, `--hl en`); `--dry-run` показывает план запросов без сети |
+| `site-analytics` | `python3 skills/site-analytics/scripts/clicks_report.py examples/08-clicks.log` | клики по партнёрам, страницам, местам и странам, отсев ботов и повторов, клики без метки (`--days`, `--window`) |
+| `security-check` | `python3 skills/security-check/scripts/scan_secrets.py папка-проекта/` | похожие на ключи строки в файлах и в истории git, `.env` в git; значения печатает с маской; `--no-git` без истории |
 
 Так выглядит находка. В партии постов подпись Instagram скопировали в Threads, а отметки владельца ещё нет:
 
 ```text
-$ python3 skills/aivfx-social/scripts/check_post.py batch.json --publish
+$ python3 skills/social-carousel/scripts/check_post.py batch.json --publish
 Найдено нарушений: 2
 пост 2026-10-20-plastic-look: пост Threads повторяет подпись Instagram: нужен свой, короче и разговорнее
 партия: нет отметки владельца "approved": true, в очередь ставить рано
@@ -325,7 +325,7 @@ $ python3 skills/aivfx-social/scripts/check_post.py batch.json --publish
 Раскадровка из примера чистая под вертикаль 30 секунд, но под ролик на 25 секунд с кадрами до 2 секунд её надо резать:
 
 ```text
-$ python3 skills/aivfx-shotlist/scripts/check_shotlist.py examples/video/04-shotlist.md --target 25 --max 2
+$ python3 skills/shot-list/scripts/check_shotlist.py examples/video/04-shotlist.md --target 25 --max 2
 Кадров: 12, общий хронометраж: 30 с
 Найдено нарушений: 9
   - кадр 2 (строка 13): 2.5 с, дольше порога 2 с. Разбей кадр или подними --max
@@ -374,7 +374,7 @@ mkdir -p ~/.codex/skills
 cp -R aivfx-content-kit/skills/* ~/.codex/skills/
 ```
 
-Скиллы подхватываются в новой сессии агента. Проверь: напиши «пришёл бриф на рекламный AI-ролик для кофейни» и посмотри, включился ли `aivfx-concept`.
+Скиллы подхватываются в новой сессии агента. Проверь: напиши «пришёл бриф на рекламный AI-ролик для кофейни» и посмотри, включился ли `ai-video-concept`.
 
 ### Как обновить
 
@@ -386,20 +386,20 @@ bash install.sh
 
 Старые копии уйдут в `skills-backups/`. Если ты правил скиллы у себя, перенеси свои правки из резервной копии в новые файлы, а лучше держи их в своём форке репозитория.
 
-Если у тебя стояла прошлая версия набора, в папке скиллов останутся старые `aivfx-*`, которых больше нет в наборе. `install.sh` их не трогает: удали их руками и поставь набор заново.
-
 ### Как удалить
 
 ```bash
-rm -rf ~/.claude/skills/aivfx-*
-rm -rf ~/.codex/skills/aivfx-*
+cd aivfx-content-kit
+for s in skills/*/; do
+  rm -rf ~/.claude/skills/"$(basename "$s")" ~/.codex/skills/"$(basename "$s")"
+done
 ```
 
 Резервные копии лежат отдельно, в `~/.claude/skills-backups/` и `~/.codex/skills-backups/`. Их можно удалить так же, когда они не нужны.
 
 ## Что такое скилл
 
-Скилл это папка с инструкцией для агента: файл `SKILL.md` с правилами простым текстом, иногда скрипты-проверялки и шаблоны. В начале сессии агент видит только имена и короткие описания скиллов. Когда задача совпадает с описанием, он открывает `SKILL.md` целиком и работает по нему. Скилл можно вызвать и по имени: «работай по aivfx-concept», а в Claude Code ещё `/aivfx-concept`.
+Скилл это папка с инструкцией для агента: файл `SKILL.md` с правилами простым текстом, иногда скрипты-проверялки и шаблоны. В начале сессии агент видит только имена и короткие описания скиллов. Когда задача совпадает с описанием, он открывает `SKILL.md` целиком и работает по нему. Скилл можно вызвать и по имени: «работай по ai-video-concept», а в Claude Code ещё `/ai-video-concept`.
 
 Подробнее, с примерами описаний и тем, как поменять скилл под себя (свой лук, свой стоп-лист, свой бренд для моушена): [docs/how-skills-work.md](docs/how-skills-work.md).
 
@@ -418,7 +418,7 @@ rm -rf ~/.codex/skills/aivfx-*
 
 ### Нужен ли Higgsfield или можно другой сервис?
 
-Не обязательно. Higgsfield у студии основной вход в модели (Seedream 5 Pro, Nano Banana, Seedance, Kling), поэтому примеры команд и грабли записаны на нём. Правила работают с любым сервисом, где есть эти или похожие модели: свой кабинет модели, Flowith или другой агрегатор. Таблица «куда вставлять лук» в `aivfx-look` расписана по моделям, а не по сервисам.
+Не обязательно. Higgsfield у студии основной вход в модели (Seedream 5 Pro, Nano Banana, Seedance, Kling), поэтому примеры команд и грабли записаны на нём. Правила работают с любым сервисом, где есть эти или похожие модели: свой кабинет модели, Flowith или другой агрегатор. Таблица «куда вставлять лук» в `film-look` расписана по моделям, а не по сервисам.
 
 ### Работает ли набор без Claude Code?
 
@@ -426,7 +426,7 @@ rm -rf ~/.codex/skills/aivfx-*
 
 ### Можно ли свой лук?
 
-Да. Скопируй похожий пресет в `skills/aivfx-look/presets/`, дай ему своё имя и поменяй поля. Если у бренда утверждённые цвета, бери пресет без грейда или запускай сборку с `--no-grade`. С нуля помогает опросник `skills/aivfx-look/templates/look-brief.md`, по шагам в [docs/how-skills-work.md](docs/how-skills-work.md).
+Да. Скопируй похожий пресет в `skills/film-look/presets/`, дай ему своё имя и поменяй поля. Если у бренда утверждённые цвета, бери пресет без грейда или запускай сборку с `--no-grade`. С нуля помогает опросник `skills/film-look/templates/look-brief.md`, по шагам в [docs/how-skills-work.md](docs/how-skills-work.md).
 
 ### Публикует ли агент сам?
 
@@ -434,11 +434,11 @@ rm -rf ~/.codex/skills/aivfx-*
 
 ### Что нужно для автопубликации в соцсети?
 
-Бизнес-аккаунт Instagram и доступ к Instagram Graph API и Threads API через приложение Meta, хранилище, где картинки лежат по публичным https-адресам (площадки забирают кадр по ссылке), и сервер, где крон запускает публикатор по расписанию: GitHub Actions, VPS или аналог. Код публикатора и токены живут в твоём проекте и в секретах сервера, в скилле их нет. Долгий токен Meta живёт около 60 дней, поставь напоминание продлить. Подробно в `aivfx-social`, раздел «Публикация с сервера».
+Бизнес-аккаунт Instagram и доступ к Instagram Graph API и Threads API через приложение Meta, хранилище, где картинки лежат по публичным https-адресам (площадки забирают кадр по ссылке), и сервер, где крон запускает публикатор по расписанию: GitHub Actions, VPS или аналог. Код публикатора и токены живут в твоём проекте и в секретах сервера, в скилле их нет. Долгий токен Meta живёт около 60 дней, поставь напоминание продлить. Подробно в `social-carousel`, раздел «Публикация с сервера».
 
 ### Что делать, если скилл не включается?
 
-Проверь, что папка лежит в `~/.claude/skills/<имя>/` (или `~/.codex/skills/<имя>/`), внутри есть `SKILL.md`, и начата новая сессия. Если агент всё равно не узнаёт задачу, назови скилл по имени: «работай по aivfx-concept».
+Проверь, что папка лежит в `~/.claude/skills/<имя>/` (или `~/.codex/skills/<имя>/`), внутри есть `SKILL.md`, и начата новая сессия. Если агент всё равно не узнаёт задачу, назови скилл по имени: «работай по ai-video-concept».
 
 ## Даты
 
@@ -462,8 +462,8 @@ MIT, см. [LICENSE](LICENSE).
 
 The kit is built around the studio's real stack: Claude Code runs the project; Higgsfield with Seedream 5 Pro and Nano Banana for stills, Seedance and Kling for video, Suno for music; HyperFrames (which renders ProRes 4444 with alpha itself), extended by the studio with a brand file, role-based scene briefs and draft-over-footage checks, for motion; Instagram, Threads and Pinterest via official APIs, posted on schedule from a server; React or Next.js on Vercel or an nginx server, Supabase, leads to Telegram and Notion; Yandex Metrica and Search Console for measurement.
 
-The flagship skill `aivfx-concept` is the studio's concept studio pipeline for client AI videos: brief with real product photos, synopsis in chat, character and location reference sheets with three options each, a 16:9 deck for approval, stills in waves with the approved sheets as references in every generation, the whole video as one Seedance prompt with the riskiest shot first, client edits as a numbered list, assembly and delivery checklist.
+The flagship skill `ai-video-concept` is the studio's concept studio pipeline for client AI videos: brief with real product photos, synopsis in chat, character and location reference sheets with three options each, a 16:9 deck for approval, stills in waves with the approved sheets as references in every generation, the whole video as one Seedance prompt with the riskiest shot first, client edits as a numbered list, assembly and delivery checklist.
 
-Four areas: Video (`aivfx-concept`, `aivfx-shotlist`, `aivfx-archive`, `aivfx-motion`), Generation (`aivfx-look` with six presets and the Dark Roast flagship, `aivfx-cover`, `aivfx-thumb`), Social and blog (`aivfx-social`, `aivfx-blog`, `aivfx-track`), Websites (`aivfx-site`, `aivfx-secure`). The agent never publishes, sends or deploys on its own: only on the owner's explicit word.
+Four areas: Video (`ai-video-concept`, `shot-list`, `archive-footage`, `motion-graphics`), Generation (`film-look` with six presets and the Dark Roast flagship, `article-cover`, `youtube-thumbnail`), Social and blog (`social-carousel`, `blog-article`, `site-analytics`), Websites (`website-build`, `security-check`). The agent never publishes, sends or deploys on its own: only on the owner's explicit word.
 
 Install: `bash install.sh` (both `~/.claude/skills` and `~/.codex/skills`), or `--claude` / `--codex`, or copy `skills/*` manually. Helper scripts are plain Python 3 with no dependencies and exit with code 1 on violations. Worked examples live in `examples/`. Skill texts are in Russian. The studio's internal templates, prompt libraries and motion factory code are not included. License: MIT. Author: Artem Shutkin, AIVFX studio, https://aivfx.ru. Business inquiries: connect@shootkin.com.

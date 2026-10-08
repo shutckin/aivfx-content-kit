@@ -3,42 +3,42 @@
 # Пути относительно временной папки, скрипт из корня набора.
 # Ролик и канал вымышленные, условно. Проверено 08.10.2026.
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-a-face-v1.png
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-a-face-v1.png
 Создан тестовый файл finals/cezve-week-a-face-v1.png (1280x720)
 ЧИСТО  finals/cezve-week-a-face-v1.png (PNG 1280x720, 2 КБ)
 Итого: файлов 1, с нарушениями 0, не прочитано 0.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.
 код выхода: 0
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-b-cezve-v1.png
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-b-cezve-v1.png
 Создан тестовый файл finals/cezve-week-b-cezve-v1.png (1280x720)
 ЧИСТО  finals/cezve-week-b-cezve-v1.png (PNG 1280x720, 2 КБ)
 Итого: файлов 1, с нарушениями 0, не прочитано 0.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.
 код выхода: 0
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-c-split-v1.png
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-c-split-v1.png
 Создан тестовый файл finals/cezve-week-c-split-v1.png (1280x720)
 ЧИСТО  finals/cezve-week-c-split-v1.png (PNG 1280x720, 2 КБ)
 Итого: файлов 1, с нарушениями 0, не прочитано 0.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.
 код выхода: 0
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-d-clock-v1.png
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-d-clock-v1.png
 Создан тестовый файл finals/cezve-week-d-clock-v1.png (1280x720)
 ЧИСТО  finals/cezve-week-d-clock-v1.png (PNG 1280x720, 2 КБ)
 Итого: файлов 1, с нарушениями 0, не прочитано 0.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.
 код выхода: 0
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-short-a-v1.png --shorts
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-short-a-v1.png --shorts
 Создан тестовый файл finals/cezve-week-short-a-v1.png (1080x1920)
 ЧИСТО  finals/cezve-week-short-a-v1.png (PNG 1080x1920, 4 КБ)
 Итого: файлов 1, с нарушениями 0, не прочитано 0.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.
 код выхода: 0
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py finals/cezve-week-a-face-v1.png finals/cezve-week-b-cezve-v1.png finals/cezve-week-c-split-v1.png finals/cezve-week-d-clock-v1.png
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py finals/cezve-week-a-face-v1.png finals/cezve-week-b-cezve-v1.png finals/cezve-week-c-split-v1.png finals/cezve-week-d-clock-v1.png
 ЧИСТО  finals/cezve-week-a-face-v1.png (PNG 1280x720, 2 КБ)
 ЧИСТО  finals/cezve-week-b-cezve-v1.png (PNG 1280x720, 2 КБ)
 ЧИСТО  finals/cezve-week-c-split-v1.png (PNG 1280x720, 2 КБ)
@@ -47,7 +47,7 @@ $ python3 skills/aivfx-thumb/scripts/check_thumb.py finals/cezve-week-a-face-v1.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.
 код выхода: 0
 
-$ python3 skills/aivfx-thumb/scripts/check_thumb.py --shorts finals/cezve-week-short-a-v1.png
+$ python3 skills/youtube-thumbnail/scripts/check_thumb.py --shorts finals/cezve-week-short-a-v1.png
 ЧИСТО  finals/cezve-week-short-a-v1.png (PNG 1080x1920, 4 КБ)
 Итого: файлов 1, с нарушениями 0, не прочитано 0.
 Напоминание: уменьши превью до ширины около 200 пикселей и посмотри глазами рядом с чужими, скрипт смысл не проверяет.

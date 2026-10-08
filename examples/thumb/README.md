@@ -1,8 +1,8 @@
 # Пример: пак превью для ролика
 
-Здесь один вымышленный ролик упакован через `aivfx-thumb`: «Неделю варил
+Здесь один вымышленный ролик упакован через `youtube-thumbnail`: «Неделю варил
 кофе только в турке» на канале «Медленное утро». Четыре концепта одной
-мысли, связка с заголовком, промпт с луком из `aivfx-look`, проверка
+мысли, связка с заголовком, промпт с луком из `film-look`, проверка
 файлов скриптом и выбор владельца.
 
 > Канал, ведущий, ролик, даты и итог теста вымышленные, условно. Самих картинок в репозитории нет: финалы описаны словами, а размер, вес и имя проверены на серых тестовых PNG нужного размера.
@@ -19,23 +19,23 @@
 Во временной папке, не в репозитории (скрипт лежит в наборе):
 
 ```
-$ python3 <путь к набору>/skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-a-face-v1.png
-$ python3 <путь к набору>/skills/aivfx-thumb/scripts/check_thumb.py --make-test finals/cezve-week-short-a-v1.png --shorts
-$ python3 <путь к набору>/skills/aivfx-thumb/scripts/check_thumb.py finals/cezve-week-a-face-v1.png
+$ python3 <путь к набору>/skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-a-face-v1.png
+$ python3 <путь к набору>/skills/youtube-thumbnail/scripts/check_thumb.py --make-test finals/cezve-week-short-a-v1.png --shorts
+$ python3 <путь к набору>/skills/youtube-thumbnail/scripts/check_thumb.py finals/cezve-week-a-face-v1.png
 ```
 
 Каждая команда заканчивается кодом 0, полный вывод в `check-output.txt`.
 На настоящих финалах запускай ту же проверку без `--make-test`.
 
 Промпт собирается и проверяется командами из `thumb-brief.md`, раздел 6:
-`build_prompt.py` и `check_prompt.py` из `aivfx-look`, обе с кодом 0.
+`build_prompt.py` и `check_prompt.py` из `film-look`, обе с кодом 0.
 
 ## Что в примере сделано по правилам набора
 
 - Мысль одной фразой, текст превью одно слово, заголовок не повторяет его.
 - Четыре разных приёма, а не четыре дубля одного кадра.
 - Свои кадры ролика идут референсами, у каждого референса одна роль.
-- Лук `aivfx-dark-roast` хвостом промпта, грейд снят осознанно, причина
+- Лук `dark-roast` хвостом промпта, грейд снят осознанно, причина
   записана; соотношение сторон только параметром.
 - Кириллица ставится слоем после генерации, правый нижний угол свободен.
 - Имена файлов латиницей по схеме `<слаг>-<буква>-<приём>-v<номер>`.

@@ -1,6 +1,6 @@
 # Бриф превью: «Неделю варил кофе только в турке»
 
-> Канал, ведущий, ролик и цифры вымышленные, условно. Шаблон: `skills/aivfx-thumb/templates/thumb-brief.md`. Картинок в примере нет: финалы описаны словами, проверка размера сделана на тестовых заглушках (`check-output.txt`).
+> Канал, ведущий, ролик и цифры вымышленные, условно. Шаблон: `skills/youtube-thumbnail/templates/thumb-brief.md`. Картинок в примере нет: финалы описаны словами, проверка размера сделана на тестовых заглушках (`check-output.txt`).
 
 ## 1. Ролик
 
@@ -60,9 +60,9 @@
 - Модели: одна для лица по референсу, вторая для света; пачкой по 4,
   отбор глазами.
 - Соотношение сторон параметром: `16:9` для A-D, `9:16` для обложки Shorts.
-- Пресет лука из aivfx-look: `aivfx-dark-roast`, **грейд снят**
+- Пресет лука из film-look: `dark-roast`, **грейд снят**
   (`--no-grade`). Почему: тёмная кухня с одной тёплой лампой, тёплый грейд
-  в такой сцене даёт коричневое мыло (так сказано в `aivfx-look`). Ядро
+  в такой сцене даёт коричневое мыло (так сказано в `film-look`). Ядро
   лука оставлено целиком.
 - Запреты: без случайных букв, водяных знаков, лишних логотипов, подмены
   героя.
@@ -72,7 +72,7 @@
 Собран реальным запуском `build_prompt.py` из корня набора:
 
 ```
-$ python3 skills/aivfx-look/scripts/build_prompt.py --preset aivfx-dark-roast --model nano-banana --mode photo --no-grade --aspect 16:9 "Anchor: the host from the reference frames, same face, short dark beard, grey knitted sweater, his own copper cezve with a dented handle. Style: light and mood from the style references, a dim home kitchen before sunrise. Composition: medium close-up, host on the left third looking at the cezve with tired disbelief, coffee foam rising to the rim, empty dark wall on the right upper half for two words of title, lower right corner left empty. Light: single warm tungsten lamp above the stove, cool blue window light from behind the host as rim light. Restrictions: no random text, no watermark, no extra logos, no CGI look, do not change the host's face." > prompt-a.txt
+$ python3 skills/film-look/scripts/build_prompt.py --preset dark-roast --model nano-banana --mode photo --no-grade --aspect 16:9 "Anchor: the host from the reference frames, same face, short dark beard, grey knitted sweater, his own copper cezve with a dented handle. Style: light and mood from the style references, a dim home kitchen before sunrise. Composition: medium close-up, host on the left third looking at the cezve with tired disbelief, coffee foam rising to the rim, empty dark wall on the right upper half for two words of title, lower right corner left empty. Light: single warm tungsten lamp above the stove, cool blue window light from behind the host as rim light. Restrictions: no random text, no watermark, no extra logos, no CGI look, do not change the host's face." > prompt-a.txt
 ```
 
 Готовый промпт (`prompt-a.txt`):
@@ -88,9 +88,9 @@ Shot on Arricam LT with Cooke S4/i primes, 35mm Kodak Vision3 500T, T2.8, shallo
 Последняя строка не часть промпта, это значение для поля модели.
 
 ```
-$ python3 skills/aivfx-look/scripts/check_prompt.py prompt-a.txt --preset aivfx-dark-roast --mode photo
+$ python3 skills/film-look/scripts/check_prompt.py prompt-a.txt --preset dark-roast --mode photo
 Заметка: грейда пресета нет (это нормально для бренд-цветов и точного цвета продукта)
-Чисто: лук aivfx-dark-roast на месте, режим photo.
+Чисто: лук dark-roast на месте, режим photo.
 ```
 
 Код выхода 0. Концепты B-D собираются той же командой со своей сценой.

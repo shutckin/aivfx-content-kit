@@ -1,6 +1,6 @@
 # Неделя 09.10 - 15.10
 
-Этап 10 скилла `aivfx-blog`, скилл `aivfx-track`, шаблон `skills/aivfx-track/templates/weekly-report.md`.
+Этап 10 скилла `blog-article`, скилл `site-analytics`, шаблон `skills/site-analytics/templates/weekly-report.md`.
 
 > Все цифры панелей в этом отчёте условные, для примера формата. Настоящий отчёт заполняется только из панелей и журнала, с датой снятия. Цифры журнала кликов взяты из реального прогона `clicks_report.py` по выдуманному журналу `08-clicks.log`.
 
@@ -34,7 +34,7 @@
 
 ## 3. Партнёрские клики из журнала
 
-Команда: `python3 skills/aivfx-track/scripts/clicks_report.py examples/08-clicks.log`
+Команда: `python3 skills/site-analytics/scripts/clicks_report.py examples/08-clicks.log`
 
 - Кликов людей: 8 (ботов и превью отсеяно 3, склеен 1 повтор).
 - Топ страниц и мест: plastikovye-kartinki.text 6, generatory-kartinok.text 2.

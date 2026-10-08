@@ -9,7 +9,7 @@ CollagenTrinity (бренд NL). Вертикаль 9:16, 21 секунда, д�
 
 ## Как сделан
 
-По конвейеру [`aivfx-concept`](../../skills/aivfx-concept/SKILL.md):
+По конвейеру [`ai-video-concept`](../../skills/ai-video-concept/SKILL.md):
 
 1. Бриф бренда: сценарий из сцен с тезисом на экране у каждой, реальные фото
    упаковки, мудборд.
